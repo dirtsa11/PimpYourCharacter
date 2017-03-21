@@ -525,6 +525,21 @@
     <Content Include="Views\Vtete\Details.cshtml" />
     <Content Include="Views\Vtete\Edit.cshtml" />
     <Content Include="Views\Vtete\Index.cshtml" />
+    <Content Include="Views\Search\searchAccessoire.cshtml" />
+    <Content Include="Views\Search\searchArme.cshtml" />
+    <Content Include="Views\Search\searchBouche.cshtml" />
+    <Content Include="Views\Search\searchBouclier.cshtml" />
+    <Content Include="Views\Search\searchBras.cshtml" />
+    <Content Include="Views\Search\searchBuste.cshtml" />
+    <Content Include="Views\Search\searchCorps.cshtml" />
+    <Content Include="Views\Search\searchCouleur.cshtml" />
+    <Content Include="Views\Search\searchEthnie.cshtml" />
+    <Content Include="Views\Search\searchJambe.cshtml" />
+    <Content Include="Views\Search\searchNez.cshtml" />
+    <Content Include="Views\Search\searchPersonnage.cshtml" />
+    <Content Include="Views\Search\searchTete.cshtml" />
+    <Content Include="Views\Search\searchTexture.cshtml" />
+    <Content Include="Views\Search\searchYeux.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

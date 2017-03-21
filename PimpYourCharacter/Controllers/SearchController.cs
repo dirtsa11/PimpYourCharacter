@@ -24,7 +24,7 @@ namespace PimpYourCharacter.Controllers
             var requeteRecherche = from acc in db.accessoire select acc;
 
             requeteRecherche = (id_accessoire < 0) ? requeteRecherche : requeteRecherche.Where(acc => acc.id_accessoire == id_accessoire);
-            requeteRecherche = (label.CompareTo("") == 0 || label == null) ? requeteRecherche : requeteRecherche.Where(acc => acc.label.Contains(label));
+            requeteRecherche = (label == null) ? requeteRecherche : requeteRecherche.Where(acc => acc.label.Contains(label));
             requeteRecherche = (id_categorie < 0) ? requeteRecherche : requeteRecherche.Where(acc => acc.id_categorie_accessoire == id_categorie);
 
             return View(requeteRecherche);
@@ -211,5 +211,6 @@ namespace PimpYourCharacter.Controllers
 
             return View(requeteRecherche);
         }
+
     }
 }
