@@ -1,0 +1,2165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="pimp_your_characterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="accessoire">
+          <Key>
+            <PropertyRef Name="id_accessoire" />
+          </Key>
+          <Property Name="id_accessoire" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_categorie_accessoire" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="arme">
+          <Key>
+            <PropertyRef Name="id_arme" />
+          </Key>
+          <Property Name="id_arme" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="poids" Type="int" Nullable="false" />
+          <Property Name="id_categorie_arme" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bouche">
+          <Key>
+            <PropertyRef Name="id_bouche" />
+          </Key>
+          <Property Name="id_bouche" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="forme" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="largeur" Type="int" Nullable="false" />
+          <Property Name="hauteur" Type="int" Nullable="false" />
+          <Property Name="profondeur" Type="int" Nullable="false" />
+          <Property Name="id_couleur" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bouclier">
+          <Key>
+            <PropertyRef Name="id_bouclier" />
+          </Key>
+          <Property Name="id_bouclier" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="poids" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bras">
+          <Key>
+            <PropertyRef Name="id_bras" />
+          </Key>
+          <Property Name="id_bras" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="longueur" Type="int" Nullable="false" />
+          <Property Name="forme" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="buste">
+          <Key>
+            <PropertyRef Name="id_buste" />
+          </Key>
+          <Property Name="id_buste" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hauteur" Type="int" Nullable="false" />
+          <Property Name="largeur" Type="int" Nullable="false" />
+          <Property Name="corpulence" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="categorie_accessoire">
+          <Key>
+            <PropertyRef Name="id_categorie_accessoire" />
+          </Key>
+          <Property Name="id_categorie_accessoire" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="categorie_arme">
+          <Key>
+            <PropertyRef Name="id_categorie_arme" />
+          </Key>
+          <Property Name="id_categorie_arme" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categorie_arme" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="corps">
+          <Key>
+            <PropertyRef Name="id_corps" />
+          </Key>
+          <Property Name="id_corps" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_bras" Type="int" Nullable="false" />
+          <Property Name="id_jambe" Type="int" Nullable="false" />
+          <Property Name="id_buste" Type="int" Nullable="false" />
+          <Property Name="id_tete" Type="int" Nullable="false" />
+          <Property Name="taille" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="couleur">
+          <Key>
+            <PropertyRef Name="id_couleur" />
+          </Key>
+          <Property Name="id_couleur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ethnie">
+          <Key>
+            <PropertyRef Name="id_ethnie" />
+          </Key>
+          <Property Name="id_ethnie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="genre">
+          <Key>
+            <PropertyRef Name="id_genre" />
+          </Key>
+          <Property Name="id_genre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="jambe">
+          <Key>
+            <PropertyRef Name="id_jambe" />
+          </Key>
+          <Property Name="id_jambe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hauteur" Type="int" Nullable="false" />
+          <Property Name="forme" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="nez">
+          <Key>
+            <PropertyRef Name="id_nez" />
+          </Key>
+          <Property Name="id_nez" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hauteur" Type="int" Nullable="false" />
+          <Property Name="largeur" Type="int" Nullable="false" />
+          <Property Name="profondeur" Type="int" Nullable="false" />
+          <Property Name="forme" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="personnage">
+          <Key>
+            <PropertyRef Name="id_personnage" />
+          </Key>
+          <Property Name="id_personnage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="age" Type="int" Nullable="false" />
+          <Property Name="id_ethnie" Type="int" Nullable="false" />
+          <Property Name="id_genre" Type="int" Nullable="false" />
+          <Property Name="id_vbas" Type="int" Nullable="false" />
+          <Property Name="id_vhaut" Type="int" Nullable="false" />
+          <Property Name="id_corps" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="personnage_accessoire">
+          <Key>
+            <PropertyRef Name="id_personnage" />
+            <PropertyRef Name="id_accessoire" />
+          </Key>
+          <Property Name="id_personnage" Type="int" Nullable="false" />
+          <Property Name="id_accessoire" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="personnage_arme">
+          <Key>
+            <PropertyRef Name="id_personnage" />
+            <PropertyRef Name="id_arme" />
+          </Key>
+          <Property Name="id_personnage" Type="int" Nullable="false" />
+          <Property Name="id_arme" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="personnage_bouclier">
+          <Key>
+            <PropertyRef Name="id_personnage" />
+            <PropertyRef Name="id_bouclier" />
+          </Key>
+          <Property Name="id_personnage" Type="int" Nullable="false" />
+          <Property Name="id_bouclier" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="personnage_tatouage_position">
+          <Key>
+            <PropertyRef Name="id_personnage" />
+            <PropertyRef Name="id_position" />
+          </Key>
+          <Property Name="id_personnage" Type="int" Nullable="false" />
+          <Property Name="id_position" Type="int" Nullable="false" />
+          <Property Name="id_tatouage" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="personnage_vmain">
+          <Key>
+            <PropertyRef Name="id_personnage" />
+            <PropertyRef Name="id_vmain" />
+          </Key>
+          <Property Name="id_personnage" Type="int" Nullable="false" />
+          <Property Name="id_vmain" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="personnage_vpied">
+          <Key>
+            <PropertyRef Name="id_personnage" />
+            <PropertyRef Name="id_vpied" />
+          </Key>
+          <Property Name="id_personnage" Type="int" Nullable="false" />
+          <Property Name="id_vpied" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="personnage_vtete">
+          <Key>
+            <PropertyRef Name="id_personnage" />
+            <PropertyRef Name="id_vtete" />
+          </Key>
+          <Property Name="id_personnage" Type="int" Nullable="false" />
+          <Property Name="id_vtete" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="position">
+          <Key>
+            <PropertyRef Name="id_position" />
+          </Key>
+          <Property Name="id_position" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tatouage">
+          <Key>
+            <PropertyRef Name="id_tatouage" />
+          </Key>
+          <Property Name="id_tatouage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tete">
+          <Key>
+            <PropertyRef Name="id_tete" />
+          </Key>
+          <Property Name="id_tete" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_nez" Type="int" Nullable="false" />
+          <Property Name="id_bouche" Type="int" Nullable="false" />
+          <Property Name="id_yeux" Type="int" Nullable="false" />
+          <Property Name="hauteur" Type="int" Nullable="false" />
+          <Property Name="largeur" Type="int" Nullable="false" />
+          <Property Name="forme" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="texture">
+          <Key>
+            <PropertyRef Name="id_texture" />
+          </Key>
+          <Property Name="id_texture" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vbas">
+          <Key>
+            <PropertyRef Name="id_vbas" />
+          </Key>
+          <Property Name="id_vbas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="poids" Type="int" Nullable="false" />
+          <Property Name="id_texture" Type="int" Nullable="false" />
+          <Property Name="id_couleur" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vhaut">
+          <Key>
+            <PropertyRef Name="id_vhaut" />
+          </Key>
+          <Property Name="id_vhaut" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="poids" Type="int" Nullable="false" />
+          <Property Name="id_texture" Type="int" Nullable="false" />
+          <Property Name="id_couleur" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vmain">
+          <Key>
+            <PropertyRef Name="id_vmain" />
+          </Key>
+          <Property Name="id_vmain" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="poids" Type="int" Nullable="false" />
+          <Property Name="id_texture" Type="int" Nullable="false" />
+          <Property Name="id_couleur" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vpied">
+          <Key>
+            <PropertyRef Name="id_vpied" />
+          </Key>
+          <Property Name="id_vpied" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="poids" Type="int" Nullable="false" />
+          <Property Name="id_texture" Type="int" Nullable="false" />
+          <Property Name="id_couleur" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vtete">
+          <Key>
+            <PropertyRef Name="id_vtete" />
+          </Key>
+          <Property Name="id_vtete" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="poids" Type="int" Nullable="false" />
+          <Property Name="id_texture" Type="int" Nullable="false" />
+          <Property Name="id_couleur" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="yeux">
+          <Key>
+            <PropertyRef Name="id_yeux" />
+          </Key>
+          <Property Name="id_yeux" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="forme" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="hauteur" Type="int" Nullable="false" />
+          <Property Name="largeur" Type="int" Nullable="false" />
+          <Property Name="profondeur" Type="int" Nullable="false" />
+          <Property Name="ecartement" Type="int" Nullable="false" />
+          <Property Name="id_couleur" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_accessoire_categorie_accessoire">
+          <End Role="categorie_accessoire" Type="Self.categorie_accessoire" Multiplicity="1" />
+          <End Role="accessoire" Type="Self.accessoire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorie_accessoire">
+              <PropertyRef Name="id_categorie_accessoire" />
+            </Principal>
+            <Dependent Role="accessoire">
+              <PropertyRef Name="id_categorie_accessoire" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_arme_categorie_arme">
+          <End Role="categorie_arme" Type="Self.categorie_arme" Multiplicity="1" />
+          <End Role="arme" Type="Self.arme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorie_arme">
+              <PropertyRef Name="id_categorie_arme" />
+            </Principal>
+            <Dependent Role="arme">
+              <PropertyRef Name="id_categorie_arme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_bouche_couleur">
+          <End Role="couleur" Type="Self.couleur" Multiplicity="1" />
+          <End Role="bouche" Type="Self.bouche" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="couleur">
+              <PropertyRef Name="id_couleur" />
+            </Principal>
+            <Dependent Role="bouche">
+              <PropertyRef Name="id_couleur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_corps_bras">
+          <End Role="bras" Type="Self.bras" Multiplicity="1" />
+          <End Role="corps" Type="Self.corps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bras">
+              <PropertyRef Name="id_bras" />
+            </Principal>
+            <Dependent Role="corps">
+              <PropertyRef Name="id_bras" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_corps_buste">
+          <End Role="buste" Type="Self.buste" Multiplicity="1" />
+          <End Role="corps" Type="Self.corps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="buste">
+              <PropertyRef Name="id_buste" />
+            </Principal>
+            <Dependent Role="corps">
+              <PropertyRef Name="id_buste" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_corps_jambe">
+          <End Role="jambe" Type="Self.jambe" Multiplicity="1" />
+          <End Role="corps" Type="Self.corps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jambe">
+              <PropertyRef Name="id_jambe" />
+            </Principal>
+            <Dependent Role="corps">
+              <PropertyRef Name="id_jambe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_corps_tete">
+          <End Role="tete" Type="Self.tete" Multiplicity="1" />
+          <End Role="corps" Type="Self.corps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tete">
+              <PropertyRef Name="id_tete" />
+            </Principal>
+            <Dependent Role="corps">
+              <PropertyRef Name="id_tete" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_accessoire_accessoire">
+          <End Role="accessoire" Type="Self.accessoire" Multiplicity="1" />
+          <End Role="personnage_accessoire" Type="Self.personnage_accessoire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accessoire">
+              <PropertyRef Name="id_accessoire" />
+            </Principal>
+            <Dependent Role="personnage_accessoire">
+              <PropertyRef Name="id_accessoire" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_accessoire_personnage">
+          <End Role="personnage" Type="Self.personnage" Multiplicity="1" />
+          <End Role="personnage_accessoire" Type="Self.personnage_accessoire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personnage">
+              <PropertyRef Name="id_personnage" />
+            </Principal>
+            <Dependent Role="personnage_accessoire">
+              <PropertyRef Name="id_personnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_arme_arme">
+          <End Role="arme" Type="Self.arme" Multiplicity="1" />
+          <End Role="personnage_arme" Type="Self.personnage_arme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="arme">
+              <PropertyRef Name="id_arme" />
+            </Principal>
+            <Dependent Role="personnage_arme">
+              <PropertyRef Name="id_arme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_arme_personnage">
+          <End Role="personnage" Type="Self.personnage" Multiplicity="1" />
+          <End Role="personnage_arme" Type="Self.personnage_arme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personnage">
+              <PropertyRef Name="id_personnage" />
+            </Principal>
+            <Dependent Role="personnage_arme">
+              <PropertyRef Name="id_personnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_bouclier_bouclier">
+          <End Role="bouclier" Type="Self.bouclier" Multiplicity="1" />
+          <End Role="personnage_bouclier" Type="Self.personnage_bouclier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bouclier">
+              <PropertyRef Name="id_bouclier" />
+            </Principal>
+            <Dependent Role="personnage_bouclier">
+              <PropertyRef Name="id_bouclier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_bouclier_personnage">
+          <End Role="personnage" Type="Self.personnage" Multiplicity="1" />
+          <End Role="personnage_bouclier" Type="Self.personnage_bouclier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personnage">
+              <PropertyRef Name="id_personnage" />
+            </Principal>
+            <Dependent Role="personnage_bouclier">
+              <PropertyRef Name="id_personnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_corps">
+          <End Role="corps" Type="Self.corps" Multiplicity="1" />
+          <End Role="personnage" Type="Self.personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="corps">
+              <PropertyRef Name="id_corps" />
+            </Principal>
+            <Dependent Role="personnage">
+              <PropertyRef Name="id_corps" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_ethnie">
+          <End Role="ethnie" Type="Self.ethnie" Multiplicity="1" />
+          <End Role="personnage" Type="Self.personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ethnie">
+              <PropertyRef Name="id_ethnie" />
+            </Principal>
+            <Dependent Role="personnage">
+              <PropertyRef Name="id_ethnie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_genre">
+          <End Role="genre" Type="Self.genre" Multiplicity="1" />
+          <End Role="personnage" Type="Self.personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="genre">
+              <PropertyRef Name="id_genre" />
+            </Principal>
+            <Dependent Role="personnage">
+              <PropertyRef Name="id_genre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_tatouage_position_personnage">
+          <End Role="personnage" Type="Self.personnage" Multiplicity="1" />
+          <End Role="personnage_tatouage_position" Type="Self.personnage_tatouage_position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personnage">
+              <PropertyRef Name="id_personnage" />
+            </Principal>
+            <Dependent Role="personnage_tatouage_position">
+              <PropertyRef Name="id_personnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_tatouage_position_position">
+          <End Role="position" Type="Self.position" Multiplicity="1" />
+          <End Role="personnage_tatouage_position" Type="Self.personnage_tatouage_position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="position">
+              <PropertyRef Name="id_position" />
+            </Principal>
+            <Dependent Role="personnage_tatouage_position">
+              <PropertyRef Name="id_position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_tatouage_position_tatouage">
+          <End Role="tatouage" Type="Self.tatouage" Multiplicity="1" />
+          <End Role="personnage_tatouage_position" Type="Self.personnage_tatouage_position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tatouage">
+              <PropertyRef Name="id_tatouage" />
+            </Principal>
+            <Dependent Role="personnage_tatouage_position">
+              <PropertyRef Name="id_tatouage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_vbas">
+          <End Role="vbas" Type="Self.vbas" Multiplicity="1" />
+          <End Role="personnage" Type="Self.personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vbas">
+              <PropertyRef Name="id_vbas" />
+            </Principal>
+            <Dependent Role="personnage">
+              <PropertyRef Name="id_vbas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_vhaut">
+          <End Role="vhaut" Type="Self.vhaut" Multiplicity="1" />
+          <End Role="personnage" Type="Self.personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vhaut">
+              <PropertyRef Name="id_vhaut" />
+            </Principal>
+            <Dependent Role="personnage">
+              <PropertyRef Name="id_vhaut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_vmain_personnage">
+          <End Role="personnage" Type="Self.personnage" Multiplicity="1" />
+          <End Role="personnage_vmain" Type="Self.personnage_vmain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personnage">
+              <PropertyRef Name="id_personnage" />
+            </Principal>
+            <Dependent Role="personnage_vmain">
+              <PropertyRef Name="id_personnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_vmain_vmain">
+          <End Role="vmain" Type="Self.vmain" Multiplicity="1" />
+          <End Role="personnage_vmain" Type="Self.personnage_vmain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vmain">
+              <PropertyRef Name="id_vmain" />
+            </Principal>
+            <Dependent Role="personnage_vmain">
+              <PropertyRef Name="id_vmain" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_vpied_personnage">
+          <End Role="personnage" Type="Self.personnage" Multiplicity="1" />
+          <End Role="personnage_vpied" Type="Self.personnage_vpied" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personnage">
+              <PropertyRef Name="id_personnage" />
+            </Principal>
+            <Dependent Role="personnage_vpied">
+              <PropertyRef Name="id_personnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_vpied_vpied">
+          <End Role="vpied" Type="Self.vpied" Multiplicity="1" />
+          <End Role="personnage_vpied" Type="Self.personnage_vpied" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vpied">
+              <PropertyRef Name="id_vpied" />
+            </Principal>
+            <Dependent Role="personnage_vpied">
+              <PropertyRef Name="id_vpied" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_vtete_personnage">
+          <End Role="personnage" Type="Self.personnage" Multiplicity="1" />
+          <End Role="personnage_vtete" Type="Self.personnage_vtete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personnage">
+              <PropertyRef Name="id_personnage" />
+            </Principal>
+            <Dependent Role="personnage_vtete">
+              <PropertyRef Name="id_personnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_vtete_vtete">
+          <End Role="vtete" Type="Self.vtete" Multiplicity="1" />
+          <End Role="personnage_vtete" Type="Self.personnage_vtete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vtete">
+              <PropertyRef Name="id_vtete" />
+            </Principal>
+            <Dependent Role="personnage_vtete">
+              <PropertyRef Name="id_vtete" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tete_bouche">
+          <End Role="bouche" Type="Self.bouche" Multiplicity="1" />
+          <End Role="tete" Type="Self.tete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bouche">
+              <PropertyRef Name="id_bouche" />
+            </Principal>
+            <Dependent Role="tete">
+              <PropertyRef Name="id_bouche" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tete_nez">
+          <End Role="nez" Type="Self.nez" Multiplicity="1" />
+          <End Role="tete" Type="Self.tete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nez">
+              <PropertyRef Name="id_nez" />
+            </Principal>
+            <Dependent Role="tete">
+              <PropertyRef Name="id_nez" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tete_yeux">
+          <End Role="yeux" Type="Self.yeux" Multiplicity="1" />
+          <End Role="tete" Type="Self.tete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="yeux">
+              <PropertyRef Name="id_yeux" />
+            </Principal>
+            <Dependent Role="tete">
+              <PropertyRef Name="id_yeux" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vbas_couleur">
+          <End Role="couleur" Type="Self.couleur" Multiplicity="1" />
+          <End Role="vbas" Type="Self.vbas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="couleur">
+              <PropertyRef Name="id_couleur" />
+            </Principal>
+            <Dependent Role="vbas">
+              <PropertyRef Name="id_couleur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vbas_texture">
+          <End Role="texture" Type="Self.texture" Multiplicity="1" />
+          <End Role="vbas" Type="Self.vbas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="texture">
+              <PropertyRef Name="id_texture" />
+            </Principal>
+            <Dependent Role="vbas">
+              <PropertyRef Name="id_texture" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vhaut_couleur">
+          <End Role="couleur" Type="Self.couleur" Multiplicity="1" />
+          <End Role="vhaut" Type="Self.vhaut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="couleur">
+              <PropertyRef Name="id_couleur" />
+            </Principal>
+            <Dependent Role="vhaut">
+              <PropertyRef Name="id_couleur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vhaut_texture">
+          <End Role="texture" Type="Self.texture" Multiplicity="1" />
+          <End Role="vhaut" Type="Self.vhaut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="texture">
+              <PropertyRef Name="id_texture" />
+            </Principal>
+            <Dependent Role="vhaut">
+              <PropertyRef Name="id_texture" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vmain_couleur">
+          <End Role="couleur" Type="Self.couleur" Multiplicity="1" />
+          <End Role="vmain" Type="Self.vmain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="couleur">
+              <PropertyRef Name="id_couleur" />
+            </Principal>
+            <Dependent Role="vmain">
+              <PropertyRef Name="id_couleur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vmain_texture">
+          <End Role="texture" Type="Self.texture" Multiplicity="1" />
+          <End Role="vmain" Type="Self.vmain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="texture">
+              <PropertyRef Name="id_texture" />
+            </Principal>
+            <Dependent Role="vmain">
+              <PropertyRef Name="id_texture" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vpied_couleur">
+          <End Role="couleur" Type="Self.couleur" Multiplicity="1" />
+          <End Role="vpied" Type="Self.vpied" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="couleur">
+              <PropertyRef Name="id_couleur" />
+            </Principal>
+            <Dependent Role="vpied">
+              <PropertyRef Name="id_couleur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vpied_texture">
+          <End Role="texture" Type="Self.texture" Multiplicity="1" />
+          <End Role="vpied" Type="Self.vpied" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="texture">
+              <PropertyRef Name="id_texture" />
+            </Principal>
+            <Dependent Role="vpied">
+              <PropertyRef Name="id_texture" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vtete_couleur">
+          <End Role="couleur" Type="Self.couleur" Multiplicity="1" />
+          <End Role="vtete" Type="Self.vtete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="couleur">
+              <PropertyRef Name="id_couleur" />
+            </Principal>
+            <Dependent Role="vtete">
+              <PropertyRef Name="id_couleur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vtete_texture">
+          <End Role="texture" Type="Self.texture" Multiplicity="1" />
+          <End Role="vtete" Type="Self.vtete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="texture">
+              <PropertyRef Name="id_texture" />
+            </Principal>
+            <Dependent Role="vtete">
+              <PropertyRef Name="id_texture" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_yeux_couleur">
+          <End Role="couleur" Type="Self.couleur" Multiplicity="1" />
+          <End Role="yeux" Type="Self.yeux" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="couleur">
+              <PropertyRef Name="id_couleur" />
+            </Principal>
+            <Dependent Role="yeux">
+              <PropertyRef Name="id_couleur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="pimp_your_characterModelStoreContainer">
+          <EntitySet Name="accessoire" EntityType="Self.accessoire" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="arme" EntityType="Self.arme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bouche" EntityType="Self.bouche" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bouclier" EntityType="Self.bouclier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bras" EntityType="Self.bras" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="buste" EntityType="Self.buste" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="categorie_accessoire" EntityType="Self.categorie_accessoire" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="categorie_arme" EntityType="Self.categorie_arme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="corps" EntityType="Self.corps" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="couleur" EntityType="Self.couleur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ethnie" EntityType="Self.ethnie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="genre" EntityType="Self.genre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="jambe" EntityType="Self.jambe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="nez" EntityType="Self.nez" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personnage" EntityType="Self.personnage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personnage_accessoire" EntityType="Self.personnage_accessoire" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personnage_arme" EntityType="Self.personnage_arme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personnage_bouclier" EntityType="Self.personnage_bouclier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personnage_tatouage_position" EntityType="Self.personnage_tatouage_position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personnage_vmain" EntityType="Self.personnage_vmain" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personnage_vpied" EntityType="Self.personnage_vpied" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personnage_vtete" EntityType="Self.personnage_vtete" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="position" EntityType="Self.position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tatouage" EntityType="Self.tatouage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tete" EntityType="Self.tete" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="texture" EntityType="Self.texture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vbas" EntityType="Self.vbas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vhaut" EntityType="Self.vhaut" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vmain" EntityType="Self.vmain" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vpied" EntityType="Self.vpied" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vtete" EntityType="Self.vtete" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="yeux" EntityType="Self.yeux" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_accessoire_categorie_accessoire" Association="Self.FK_accessoire_categorie_accessoire">
+            <End Role="categorie_accessoire" EntitySet="categorie_accessoire" />
+            <End Role="accessoire" EntitySet="accessoire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_arme_categorie_arme" Association="Self.FK_arme_categorie_arme">
+            <End Role="categorie_arme" EntitySet="categorie_arme" />
+            <End Role="arme" EntitySet="arme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_bouche_couleur" Association="Self.FK_bouche_couleur">
+            <End Role="couleur" EntitySet="couleur" />
+            <End Role="bouche" EntitySet="bouche" />
+          </AssociationSet>
+          <AssociationSet Name="FK_corps_bras" Association="Self.FK_corps_bras">
+            <End Role="bras" EntitySet="bras" />
+            <End Role="corps" EntitySet="corps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_corps_buste" Association="Self.FK_corps_buste">
+            <End Role="buste" EntitySet="buste" />
+            <End Role="corps" EntitySet="corps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_corps_jambe" Association="Self.FK_corps_jambe">
+            <End Role="jambe" EntitySet="jambe" />
+            <End Role="corps" EntitySet="corps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_corps_tete" Association="Self.FK_corps_tete">
+            <End Role="tete" EntitySet="tete" />
+            <End Role="corps" EntitySet="corps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_accessoire_accessoire" Association="Self.FK_personnage_accessoire_accessoire">
+            <End Role="accessoire" EntitySet="accessoire" />
+            <End Role="personnage_accessoire" EntitySet="personnage_accessoire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_accessoire_personnage" Association="Self.FK_personnage_accessoire_personnage">
+            <End Role="personnage" EntitySet="personnage" />
+            <End Role="personnage_accessoire" EntitySet="personnage_accessoire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_arme_arme" Association="Self.FK_personnage_arme_arme">
+            <End Role="arme" EntitySet="arme" />
+            <End Role="personnage_arme" EntitySet="personnage_arme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_arme_personnage" Association="Self.FK_personnage_arme_personnage">
+            <End Role="personnage" EntitySet="personnage" />
+            <End Role="personnage_arme" EntitySet="personnage_arme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_bouclier_bouclier" Association="Self.FK_personnage_bouclier_bouclier">
+            <End Role="bouclier" EntitySet="bouclier" />
+            <End Role="personnage_bouclier" EntitySet="personnage_bouclier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_bouclier_personnage" Association="Self.FK_personnage_bouclier_personnage">
+            <End Role="personnage" EntitySet="personnage" />
+            <End Role="personnage_bouclier" EntitySet="personnage_bouclier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_corps" Association="Self.FK_personnage_corps">
+            <End Role="corps" EntitySet="corps" />
+            <End Role="personnage" EntitySet="personnage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_ethnie" Association="Self.FK_personnage_ethnie">
+            <End Role="ethnie" EntitySet="ethnie" />
+            <End Role="personnage" EntitySet="personnage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_genre" Association="Self.FK_personnage_genre">
+            <End Role="genre" EntitySet="genre" />
+            <End Role="personnage" EntitySet="personnage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_tatouage_position_personnage" Association="Self.FK_personnage_tatouage_position_personnage">
+            <End Role="personnage" EntitySet="personnage" />
+            <End Role="personnage_tatouage_position" EntitySet="personnage_tatouage_position" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_tatouage_position_position" Association="Self.FK_personnage_tatouage_position_position">
+            <End Role="position" EntitySet="position" />
+            <End Role="personnage_tatouage_position" EntitySet="personnage_tatouage_position" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_tatouage_position_tatouage" Association="Self.FK_personnage_tatouage_position_tatouage">
+            <End Role="tatouage" EntitySet="tatouage" />
+            <End Role="personnage_tatouage_position" EntitySet="personnage_tatouage_position" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_vbas" Association="Self.FK_personnage_vbas">
+            <End Role="vbas" EntitySet="vbas" />
+            <End Role="personnage" EntitySet="personnage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_vhaut" Association="Self.FK_personnage_vhaut">
+            <End Role="vhaut" EntitySet="vhaut" />
+            <End Role="personnage" EntitySet="personnage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_vmain_personnage" Association="Self.FK_personnage_vmain_personnage">
+            <End Role="personnage" EntitySet="personnage" />
+            <End Role="personnage_vmain" EntitySet="personnage_vmain" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_vmain_vmain" Association="Self.FK_personnage_vmain_vmain">
+            <End Role="vmain" EntitySet="vmain" />
+            <End Role="personnage_vmain" EntitySet="personnage_vmain" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_vpied_personnage" Association="Self.FK_personnage_vpied_personnage">
+            <End Role="personnage" EntitySet="personnage" />
+            <End Role="personnage_vpied" EntitySet="personnage_vpied" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_vpied_vpied" Association="Self.FK_personnage_vpied_vpied">
+            <End Role="vpied" EntitySet="vpied" />
+            <End Role="personnage_vpied" EntitySet="personnage_vpied" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_vtete_personnage" Association="Self.FK_personnage_vtete_personnage">
+            <End Role="personnage" EntitySet="personnage" />
+            <End Role="personnage_vtete" EntitySet="personnage_vtete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_vtete_vtete" Association="Self.FK_personnage_vtete_vtete">
+            <End Role="vtete" EntitySet="vtete" />
+            <End Role="personnage_vtete" EntitySet="personnage_vtete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tete_bouche" Association="Self.FK_tete_bouche">
+            <End Role="bouche" EntitySet="bouche" />
+            <End Role="tete" EntitySet="tete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tete_nez" Association="Self.FK_tete_nez">
+            <End Role="nez" EntitySet="nez" />
+            <End Role="tete" EntitySet="tete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tete_yeux" Association="Self.FK_tete_yeux">
+            <End Role="yeux" EntitySet="yeux" />
+            <End Role="tete" EntitySet="tete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vbas_couleur" Association="Self.FK_vbas_couleur">
+            <End Role="couleur" EntitySet="couleur" />
+            <End Role="vbas" EntitySet="vbas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vbas_texture" Association="Self.FK_vbas_texture">
+            <End Role="texture" EntitySet="texture" />
+            <End Role="vbas" EntitySet="vbas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vhaut_couleur" Association="Self.FK_vhaut_couleur">
+            <End Role="couleur" EntitySet="couleur" />
+            <End Role="vhaut" EntitySet="vhaut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vhaut_texture" Association="Self.FK_vhaut_texture">
+            <End Role="texture" EntitySet="texture" />
+            <End Role="vhaut" EntitySet="vhaut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vmain_couleur" Association="Self.FK_vmain_couleur">
+            <End Role="couleur" EntitySet="couleur" />
+            <End Role="vmain" EntitySet="vmain" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vmain_texture" Association="Self.FK_vmain_texture">
+            <End Role="texture" EntitySet="texture" />
+            <End Role="vmain" EntitySet="vmain" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vpied_couleur" Association="Self.FK_vpied_couleur">
+            <End Role="couleur" EntitySet="couleur" />
+            <End Role="vpied" EntitySet="vpied" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vpied_texture" Association="Self.FK_vpied_texture">
+            <End Role="texture" EntitySet="texture" />
+            <End Role="vpied" EntitySet="vpied" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vtete_couleur" Association="Self.FK_vtete_couleur">
+            <End Role="couleur" EntitySet="couleur" />
+            <End Role="vtete" EntitySet="vtete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vtete_texture" Association="Self.FK_vtete_texture">
+            <End Role="texture" EntitySet="texture" />
+            <End Role="vtete" EntitySet="vtete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_yeux_couleur" Association="Self.FK_yeux_couleur">
+            <End Role="couleur" EntitySet="couleur" />
+            <End Role="yeux" EntitySet="yeux" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="pimp_your_characterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="accessoire">
+          <Key>
+            <PropertyRef Name="id_accessoire" />
+          </Key>
+          <Property Name="id_accessoire" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_categorie_accessoire" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="categorie_accessoire" Relationship="Self.FK_accessoire_categorie_accessoire" FromRole="accessoire" ToRole="categorie_accessoire" />
+          <NavigationProperty Name="personnage" Relationship="Self.personnage_accessoire" FromRole="accessoire" ToRole="personnage" />
+        </EntityType>
+        <EntityType Name="arme">
+          <Key>
+            <PropertyRef Name="id_arme" />
+          </Key>
+          <Property Name="id_arme" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="poids" Type="Int32" Nullable="false" />
+          <Property Name="id_categorie_arme" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="categorie_arme" Relationship="Self.FK_arme_categorie_arme" FromRole="arme" ToRole="categorie_arme" />
+          <NavigationProperty Name="personnage" Relationship="Self.personnage_arme" FromRole="arme" ToRole="personnage" />
+        </EntityType>
+        <EntityType Name="bouche">
+          <Key>
+            <PropertyRef Name="id_bouche" />
+          </Key>
+          <Property Name="id_bouche" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="forme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="largeur" Type="Int32" Nullable="false" />
+          <Property Name="hauteur" Type="Int32" Nullable="false" />
+          <Property Name="profondeur" Type="Int32" Nullable="false" />
+          <Property Name="id_couleur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="couleur" Relationship="Self.FK_bouche_couleur" FromRole="bouche" ToRole="couleur" />
+          <NavigationProperty Name="tete" Relationship="Self.FK_tete_bouche" FromRole="bouche" ToRole="tete" />
+        </EntityType>
+        <EntityType Name="bouclier">
+          <Key>
+            <PropertyRef Name="id_bouclier" />
+          </Key>
+          <Property Name="id_bouclier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="poids" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="personnage" Relationship="Self.personnage_bouclier" FromRole="bouclier" ToRole="personnage" />
+        </EntityType>
+        <EntityType Name="bras">
+          <Key>
+            <PropertyRef Name="id_bras" />
+          </Key>
+          <Property Name="id_bras" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="longueur" Type="Int32" Nullable="false" />
+          <Property Name="forme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="corps" Relationship="Self.FK_corps_bras" FromRole="bras" ToRole="corps" />
+        </EntityType>
+        <EntityType Name="buste">
+          <Key>
+            <PropertyRef Name="id_buste" />
+          </Key>
+          <Property Name="id_buste" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hauteur" Type="Int32" Nullable="false" />
+          <Property Name="largeur" Type="Int32" Nullable="false" />
+          <Property Name="corpulence" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="corps" Relationship="Self.FK_corps_buste" FromRole="buste" ToRole="corps" />
+        </EntityType>
+        <EntityType Name="categorie_accessoire">
+          <Key>
+            <PropertyRef Name="id_categorie_accessoire" />
+          </Key>
+          <Property Name="id_categorie_accessoire" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="accessoire" Relationship="Self.FK_accessoire_categorie_accessoire" FromRole="categorie_accessoire" ToRole="accessoire" />
+        </EntityType>
+        <EntityType Name="categorie_arme">
+          <Key>
+            <PropertyRef Name="id_categorie_arme" />
+          </Key>
+          <Property Name="id_categorie_arme" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categorie_arme1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="arme" Relationship="Self.FK_arme_categorie_arme" FromRole="categorie_arme" ToRole="arme" />
+        </EntityType>
+        <EntityType Name="corps">
+          <Key>
+            <PropertyRef Name="id_corps" />
+          </Key>
+          <Property Name="id_corps" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_bras" Type="Int32" Nullable="false" />
+          <Property Name="id_jambe" Type="Int32" Nullable="false" />
+          <Property Name="id_buste" Type="Int32" Nullable="false" />
+          <Property Name="id_tete" Type="Int32" Nullable="false" />
+          <Property Name="taille" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="bras" Relationship="Self.FK_corps_bras" FromRole="corps" ToRole="bras" />
+          <NavigationProperty Name="buste" Relationship="Self.FK_corps_buste" FromRole="corps" ToRole="buste" />
+          <NavigationProperty Name="jambe" Relationship="Self.FK_corps_jambe" FromRole="corps" ToRole="jambe" />
+          <NavigationProperty Name="tete" Relationship="Self.FK_corps_tete" FromRole="corps" ToRole="tete" />
+          <NavigationProperty Name="personnage" Relationship="Self.FK_personnage_corps" FromRole="corps" ToRole="personnage" />
+        </EntityType>
+        <EntityType Name="couleur">
+          <Key>
+            <PropertyRef Name="id_couleur" />
+          </Key>
+          <Property Name="id_couleur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="bouche" Relationship="Self.FK_bouche_couleur" FromRole="couleur" ToRole="bouche" />
+          <NavigationProperty Name="vbas" Relationship="Self.FK_vbas_couleur" FromRole="couleur" ToRole="vbas" />
+          <NavigationProperty Name="vhaut" Relationship="Self.FK_vhaut_couleur" FromRole="couleur" ToRole="vhaut" />
+          <NavigationProperty Name="vmain" Relationship="Self.FK_vmain_couleur" FromRole="couleur" ToRole="vmain" />
+          <NavigationProperty Name="vpied" Relationship="Self.FK_vpied_couleur" FromRole="couleur" ToRole="vpied" />
+          <NavigationProperty Name="vtete" Relationship="Self.FK_vtete_couleur" FromRole="couleur" ToRole="vtete" />
+          <NavigationProperty Name="yeux" Relationship="Self.FK_yeux_couleur" FromRole="couleur" ToRole="yeux" />
+        </EntityType>
+        <EntityType Name="ethnie">
+          <Key>
+            <PropertyRef Name="id_ethnie" />
+          </Key>
+          <Property Name="id_ethnie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="personnage" Relationship="Self.FK_personnage_ethnie" FromRole="ethnie" ToRole="personnage" />
+        </EntityType>
+        <EntityType Name="genre">
+          <Key>
+            <PropertyRef Name="id_genre" />
+          </Key>
+          <Property Name="id_genre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="personnage" Relationship="Self.FK_personnage_genre" FromRole="genre" ToRole="personnage" />
+        </EntityType>
+        <EntityType Name="jambe">
+          <Key>
+            <PropertyRef Name="id_jambe" />
+          </Key>
+          <Property Name="id_jambe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hauteur" Type="Int32" Nullable="false" />
+          <Property Name="forme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="corps" Relationship="Self.FK_corps_jambe" FromRole="jambe" ToRole="corps" />
+        </EntityType>
+        <EntityType Name="nez">
+          <Key>
+            <PropertyRef Name="id_nez" />
+          </Key>
+          <Property Name="id_nez" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hauteur" Type="Int32" Nullable="false" />
+          <Property Name="largeur" Type="Int32" Nullable="false" />
+          <Property Name="profondeur" Type="Int32" Nullable="false" />
+          <Property Name="forme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tete" Relationship="Self.FK_tete_nez" FromRole="nez" ToRole="tete" />
+        </EntityType>
+        <EntityType Name="personnage">
+          <Key>
+            <PropertyRef Name="id_personnage" />
+          </Key>
+          <Property Name="id_personnage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="age" Type="Int32" Nullable="false" />
+          <Property Name="id_ethnie" Type="Int32" Nullable="false" />
+          <Property Name="id_genre" Type="Int32" Nullable="false" />
+          <Property Name="id_vbas" Type="Int32" Nullable="false" />
+          <Property Name="id_vhaut" Type="Int32" Nullable="false" />
+          <Property Name="id_corps" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="corps" Relationship="Self.FK_personnage_corps" FromRole="personnage" ToRole="corps" />
+          <NavigationProperty Name="ethnie" Relationship="Self.FK_personnage_ethnie" FromRole="personnage" ToRole="ethnie" />
+          <NavigationProperty Name="genre" Relationship="Self.FK_personnage_genre" FromRole="personnage" ToRole="genre" />
+          <NavigationProperty Name="personnage_tatouage_position" Relationship="Self.FK_personnage_tatouage_position_personnage" FromRole="personnage" ToRole="personnage_tatouage_position" />
+          <NavigationProperty Name="vbas" Relationship="Self.FK_personnage_vbas" FromRole="personnage" ToRole="vbas" />
+          <NavigationProperty Name="vhaut" Relationship="Self.FK_personnage_vhaut" FromRole="personnage" ToRole="vhaut" />
+          <NavigationProperty Name="accessoire" Relationship="Self.personnage_accessoire" FromRole="personnage" ToRole="accessoire" />
+          <NavigationProperty Name="arme" Relationship="Self.personnage_arme" FromRole="personnage" ToRole="arme" />
+          <NavigationProperty Name="bouclier" Relationship="Self.personnage_bouclier" FromRole="personnage" ToRole="bouclier" />
+          <NavigationProperty Name="vmain" Relationship="Self.personnage_vmain" FromRole="personnage" ToRole="vmain" />
+          <NavigationProperty Name="vpied" Relationship="Self.personnage_vpied" FromRole="personnage" ToRole="vpied" />
+          <NavigationProperty Name="vtete" Relationship="Self.personnage_vtete" FromRole="personnage" ToRole="vtete" />
+        </EntityType>
+        <EntityType Name="personnage_tatouage_position">
+          <Key>
+            <PropertyRef Name="id_personnage" />
+            <PropertyRef Name="id_position" />
+          </Key>
+          <Property Name="id_personnage" Type="Int32" Nullable="false" />
+          <Property Name="id_position" Type="Int32" Nullable="false" />
+          <Property Name="id_tatouage" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="personnage" Relationship="Self.FK_personnage_tatouage_position_personnage" FromRole="personnage_tatouage_position" ToRole="personnage" />
+          <NavigationProperty Name="position" Relationship="Self.FK_personnage_tatouage_position_position" FromRole="personnage_tatouage_position" ToRole="position" />
+          <NavigationProperty Name="tatouage" Relationship="Self.FK_personnage_tatouage_position_tatouage" FromRole="personnage_tatouage_position" ToRole="tatouage" />
+        </EntityType>
+        <EntityType Name="position">
+          <Key>
+            <PropertyRef Name="id_position" />
+          </Key>
+          <Property Name="id_position" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="personnage_tatouage_position" Relationship="Self.FK_personnage_tatouage_position_position" FromRole="position" ToRole="personnage_tatouage_position" />
+        </EntityType>
+        <EntityType Name="tatouage">
+          <Key>
+            <PropertyRef Name="id_tatouage" />
+          </Key>
+          <Property Name="id_tatouage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="personnage_tatouage_position" Relationship="Self.FK_personnage_tatouage_position_tatouage" FromRole="tatouage" ToRole="personnage_tatouage_position" />
+        </EntityType>
+        <EntityType Name="tete">
+          <Key>
+            <PropertyRef Name="id_tete" />
+          </Key>
+          <Property Name="id_tete" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_nez" Type="Int32" Nullable="false" />
+          <Property Name="id_bouche" Type="Int32" Nullable="false" />
+          <Property Name="id_yeux" Type="Int32" Nullable="false" />
+          <Property Name="hauteur" Type="Int32" Nullable="false" />
+          <Property Name="largeur" Type="Int32" Nullable="false" />
+          <Property Name="forme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="bouche" Relationship="Self.FK_tete_bouche" FromRole="tete" ToRole="bouche" />
+          <NavigationProperty Name="corps" Relationship="Self.FK_corps_tete" FromRole="tete" ToRole="corps" />
+          <NavigationProperty Name="nez" Relationship="Self.FK_tete_nez" FromRole="tete" ToRole="nez" />
+          <NavigationProperty Name="yeux" Relationship="Self.FK_tete_yeux" FromRole="tete" ToRole="yeux" />
+        </EntityType>
+        <EntityType Name="texture">
+          <Key>
+            <PropertyRef Name="id_texture" />
+          </Key>
+          <Property Name="id_texture" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="vbas" Relationship="Self.FK_vbas_texture" FromRole="texture" ToRole="vbas" />
+          <NavigationProperty Name="vhaut" Relationship="Self.FK_vhaut_texture" FromRole="texture" ToRole="vhaut" />
+          <NavigationProperty Name="vmain" Relationship="Self.FK_vmain_texture" FromRole="texture" ToRole="vmain" />
+          <NavigationProperty Name="vpied" Relationship="Self.FK_vpied_texture" FromRole="texture" ToRole="vpied" />
+          <NavigationProperty Name="vtete" Relationship="Self.FK_vtete_texture" FromRole="texture" ToRole="vtete" />
+        </EntityType>
+        <EntityType Name="vbas">
+          <Key>
+            <PropertyRef Name="id_vbas" />
+          </Key>
+          <Property Name="id_vbas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="poids" Type="Int32" Nullable="false" />
+          <Property Name="id_texture" Type="Int32" Nullable="false" />
+          <Property Name="id_couleur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="couleur" Relationship="Self.FK_vbas_couleur" FromRole="vbas" ToRole="couleur" />
+          <NavigationProperty Name="personnage" Relationship="Self.FK_personnage_vbas" FromRole="vbas" ToRole="personnage" />
+          <NavigationProperty Name="texture" Relationship="Self.FK_vbas_texture" FromRole="vbas" ToRole="texture" />
+        </EntityType>
+        <EntityType Name="vhaut">
+          <Key>
+            <PropertyRef Name="id_vhaut" />
+          </Key>
+          <Property Name="id_vhaut" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="poids" Type="Int32" Nullable="false" />
+          <Property Name="id_texture" Type="Int32" Nullable="false" />
+          <Property Name="id_couleur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="couleur" Relationship="Self.FK_vhaut_couleur" FromRole="vhaut" ToRole="couleur" />
+          <NavigationProperty Name="personnage" Relationship="Self.FK_personnage_vhaut" FromRole="vhaut" ToRole="personnage" />
+          <NavigationProperty Name="texture" Relationship="Self.FK_vhaut_texture" FromRole="vhaut" ToRole="texture" />
+        </EntityType>
+        <EntityType Name="vmain">
+          <Key>
+            <PropertyRef Name="id_vmain" />
+          </Key>
+          <Property Name="id_vmain" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="poids" Type="Int32" Nullable="false" />
+          <Property Name="id_texture" Type="Int32" Nullable="false" />
+          <Property Name="id_couleur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="couleur" Relationship="Self.FK_vmain_couleur" FromRole="vmain" ToRole="couleur" />
+          <NavigationProperty Name="texture" Relationship="Self.FK_vmain_texture" FromRole="vmain" ToRole="texture" />
+          <NavigationProperty Name="personnage" Relationship="Self.personnage_vmain" FromRole="vmain" ToRole="personnage" />
+        </EntityType>
+        <EntityType Name="vpied">
+          <Key>
+            <PropertyRef Name="id_vpied" />
+          </Key>
+          <Property Name="id_vpied" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="poids" Type="Int32" Nullable="false" />
+          <Property Name="id_texture" Type="Int32" Nullable="false" />
+          <Property Name="id_couleur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="couleur" Relationship="Self.FK_vpied_couleur" FromRole="vpied" ToRole="couleur" />
+          <NavigationProperty Name="texture" Relationship="Self.FK_vpied_texture" FromRole="vpied" ToRole="texture" />
+          <NavigationProperty Name="personnage" Relationship="Self.personnage_vpied" FromRole="vpied" ToRole="personnage" />
+        </EntityType>
+        <EntityType Name="vtete">
+          <Key>
+            <PropertyRef Name="id_vtete" />
+          </Key>
+          <Property Name="id_vtete" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="poids" Type="Int32" Nullable="false" />
+          <Property Name="id_texture" Type="Int32" Nullable="false" />
+          <Property Name="id_couleur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="couleur" Relationship="Self.FK_vtete_couleur" FromRole="vtete" ToRole="couleur" />
+          <NavigationProperty Name="texture" Relationship="Self.FK_vtete_texture" FromRole="vtete" ToRole="texture" />
+          <NavigationProperty Name="personnage" Relationship="Self.personnage_vtete" FromRole="vtete" ToRole="personnage" />
+        </EntityType>
+        <EntityType Name="yeux">
+          <Key>
+            <PropertyRef Name="id_yeux" />
+          </Key>
+          <Property Name="id_yeux" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="forme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hauteur" Type="Int32" Nullable="false" />
+          <Property Name="largeur" Type="Int32" Nullable="false" />
+          <Property Name="profondeur" Type="Int32" Nullable="false" />
+          <Property Name="ecartement" Type="Int32" Nullable="false" />
+          <Property Name="id_couleur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="couleur" Relationship="Self.FK_yeux_couleur" FromRole="yeux" ToRole="couleur" />
+          <NavigationProperty Name="tete" Relationship="Self.FK_tete_yeux" FromRole="yeux" ToRole="tete" />
+        </EntityType>
+        <Association Name="FK_accessoire_categorie_accessoire">
+          <End Role="categorie_accessoire" Type="Self.categorie_accessoire" Multiplicity="1" />
+          <End Role="accessoire" Type="Self.accessoire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorie_accessoire">
+              <PropertyRef Name="id_categorie_accessoire" />
+            </Principal>
+            <Dependent Role="accessoire">
+              <PropertyRef Name="id_categorie_accessoire" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_arme_categorie_arme">
+          <End Role="categorie_arme" Type="Self.categorie_arme" Multiplicity="1" />
+          <End Role="arme" Type="Self.arme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorie_arme">
+              <PropertyRef Name="id_categorie_arme" />
+            </Principal>
+            <Dependent Role="arme">
+              <PropertyRef Name="id_categorie_arme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_bouche_couleur">
+          <End Role="couleur" Type="Self.couleur" Multiplicity="1" />
+          <End Role="bouche" Type="Self.bouche" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="couleur">
+              <PropertyRef Name="id_couleur" />
+            </Principal>
+            <Dependent Role="bouche">
+              <PropertyRef Name="id_couleur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tete_bouche">
+          <End Role="bouche" Type="Self.bouche" Multiplicity="1" />
+          <End Role="tete" Type="Self.tete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bouche">
+              <PropertyRef Name="id_bouche" />
+            </Principal>
+            <Dependent Role="tete">
+              <PropertyRef Name="id_bouche" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_corps_bras">
+          <End Role="bras" Type="Self.bras" Multiplicity="1" />
+          <End Role="corps" Type="Self.corps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bras">
+              <PropertyRef Name="id_bras" />
+            </Principal>
+            <Dependent Role="corps">
+              <PropertyRef Name="id_bras" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_corps_buste">
+          <End Role="buste" Type="Self.buste" Multiplicity="1" />
+          <End Role="corps" Type="Self.corps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="buste">
+              <PropertyRef Name="id_buste" />
+            </Principal>
+            <Dependent Role="corps">
+              <PropertyRef Name="id_buste" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_corps_jambe">
+          <End Role="jambe" Type="Self.jambe" Multiplicity="1" />
+          <End Role="corps" Type="Self.corps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jambe">
+              <PropertyRef Name="id_jambe" />
+            </Principal>
+            <Dependent Role="corps">
+              <PropertyRef Name="id_jambe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_corps_tete">
+          <End Role="tete" Type="Self.tete" Multiplicity="1" />
+          <End Role="corps" Type="Self.corps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tete">
+              <PropertyRef Name="id_tete" />
+            </Principal>
+            <Dependent Role="corps">
+              <PropertyRef Name="id_tete" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_corps">
+          <End Role="corps" Type="Self.corps" Multiplicity="1" />
+          <End Role="personnage" Type="Self.personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="corps">
+              <PropertyRef Name="id_corps" />
+            </Principal>
+            <Dependent Role="personnage">
+              <PropertyRef Name="id_corps" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vbas_couleur">
+          <End Role="couleur" Type="Self.couleur" Multiplicity="1" />
+          <End Role="vbas" Type="Self.vbas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="couleur">
+              <PropertyRef Name="id_couleur" />
+            </Principal>
+            <Dependent Role="vbas">
+              <PropertyRef Name="id_couleur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vhaut_couleur">
+          <End Role="couleur" Type="Self.couleur" Multiplicity="1" />
+          <End Role="vhaut" Type="Self.vhaut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="couleur">
+              <PropertyRef Name="id_couleur" />
+            </Principal>
+            <Dependent Role="vhaut">
+              <PropertyRef Name="id_couleur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vmain_couleur">
+          <End Role="couleur" Type="Self.couleur" Multiplicity="1" />
+          <End Role="vmain" Type="Self.vmain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="couleur">
+              <PropertyRef Name="id_couleur" />
+            </Principal>
+            <Dependent Role="vmain">
+              <PropertyRef Name="id_couleur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vpied_couleur">
+          <End Role="couleur" Type="Self.couleur" Multiplicity="1" />
+          <End Role="vpied" Type="Self.vpied" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="couleur">
+              <PropertyRef Name="id_couleur" />
+            </Principal>
+            <Dependent Role="vpied">
+              <PropertyRef Name="id_couleur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vtete_couleur">
+          <End Role="couleur" Type="Self.couleur" Multiplicity="1" />
+          <End Role="vtete" Type="Self.vtete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="couleur">
+              <PropertyRef Name="id_couleur" />
+            </Principal>
+            <Dependent Role="vtete">
+              <PropertyRef Name="id_couleur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_yeux_couleur">
+          <End Role="couleur" Type="Self.couleur" Multiplicity="1" />
+          <End Role="yeux" Type="Self.yeux" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="couleur">
+              <PropertyRef Name="id_couleur" />
+            </Principal>
+            <Dependent Role="yeux">
+              <PropertyRef Name="id_couleur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_ethnie">
+          <End Role="ethnie" Type="Self.ethnie" Multiplicity="1" />
+          <End Role="personnage" Type="Self.personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ethnie">
+              <PropertyRef Name="id_ethnie" />
+            </Principal>
+            <Dependent Role="personnage">
+              <PropertyRef Name="id_ethnie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_genre">
+          <End Role="genre" Type="Self.genre" Multiplicity="1" />
+          <End Role="personnage" Type="Self.personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="genre">
+              <PropertyRef Name="id_genre" />
+            </Principal>
+            <Dependent Role="personnage">
+              <PropertyRef Name="id_genre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tete_nez">
+          <End Role="nez" Type="Self.nez" Multiplicity="1" />
+          <End Role="tete" Type="Self.tete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nez">
+              <PropertyRef Name="id_nez" />
+            </Principal>
+            <Dependent Role="tete">
+              <PropertyRef Name="id_nez" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_tatouage_position_personnage">
+          <End Role="personnage" Type="Self.personnage" Multiplicity="1" />
+          <End Role="personnage_tatouage_position" Type="Self.personnage_tatouage_position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personnage">
+              <PropertyRef Name="id_personnage" />
+            </Principal>
+            <Dependent Role="personnage_tatouage_position">
+              <PropertyRef Name="id_personnage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_vbas">
+          <End Role="vbas" Type="Self.vbas" Multiplicity="1" />
+          <End Role="personnage" Type="Self.personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vbas">
+              <PropertyRef Name="id_vbas" />
+            </Principal>
+            <Dependent Role="personnage">
+              <PropertyRef Name="id_vbas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_vhaut">
+          <End Role="vhaut" Type="Self.vhaut" Multiplicity="1" />
+          <End Role="personnage" Type="Self.personnage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vhaut">
+              <PropertyRef Name="id_vhaut" />
+            </Principal>
+            <Dependent Role="personnage">
+              <PropertyRef Name="id_vhaut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_tatouage_position_position">
+          <End Role="position" Type="Self.position" Multiplicity="1" />
+          <End Role="personnage_tatouage_position" Type="Self.personnage_tatouage_position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="position">
+              <PropertyRef Name="id_position" />
+            </Principal>
+            <Dependent Role="personnage_tatouage_position">
+              <PropertyRef Name="id_position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personnage_tatouage_position_tatouage">
+          <End Role="tatouage" Type="Self.tatouage" Multiplicity="1" />
+          <End Role="personnage_tatouage_position" Type="Self.personnage_tatouage_position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tatouage">
+              <PropertyRef Name="id_tatouage" />
+            </Principal>
+            <Dependent Role="personnage_tatouage_position">
+              <PropertyRef Name="id_tatouage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tete_yeux">
+          <End Role="yeux" Type="Self.yeux" Multiplicity="1" />
+          <End Role="tete" Type="Self.tete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="yeux">
+              <PropertyRef Name="id_yeux" />
+            </Principal>
+            <Dependent Role="tete">
+              <PropertyRef Name="id_yeux" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vbas_texture">
+          <End Role="texture" Type="Self.texture" Multiplicity="1" />
+          <End Role="vbas" Type="Self.vbas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="texture">
+              <PropertyRef Name="id_texture" />
+            </Principal>
+            <Dependent Role="vbas">
+              <PropertyRef Name="id_texture" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vhaut_texture">
+          <End Role="texture" Type="Self.texture" Multiplicity="1" />
+          <End Role="vhaut" Type="Self.vhaut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="texture">
+              <PropertyRef Name="id_texture" />
+            </Principal>
+            <Dependent Role="vhaut">
+              <PropertyRef Name="id_texture" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vmain_texture">
+          <End Role="texture" Type="Self.texture" Multiplicity="1" />
+          <End Role="vmain" Type="Self.vmain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="texture">
+              <PropertyRef Name="id_texture" />
+            </Principal>
+            <Dependent Role="vmain">
+              <PropertyRef Name="id_texture" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vpied_texture">
+          <End Role="texture" Type="Self.texture" Multiplicity="1" />
+          <End Role="vpied" Type="Self.vpied" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="texture">
+              <PropertyRef Name="id_texture" />
+            </Principal>
+            <Dependent Role="vpied">
+              <PropertyRef Name="id_texture" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vtete_texture">
+          <End Role="texture" Type="Self.texture" Multiplicity="1" />
+          <End Role="vtete" Type="Self.vtete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="texture">
+              <PropertyRef Name="id_texture" />
+            </Principal>
+            <Dependent Role="vtete">
+              <PropertyRef Name="id_texture" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="personnage_accessoire">
+          <End Role="accessoire" Type="Self.accessoire" Multiplicity="*" />
+          <End Role="personnage" Type="Self.personnage" Multiplicity="*" />
+        </Association>
+        <Association Name="personnage_arme">
+          <End Role="arme" Type="Self.arme" Multiplicity="*" />
+          <End Role="personnage" Type="Self.personnage" Multiplicity="*" />
+        </Association>
+        <Association Name="personnage_bouclier">
+          <End Role="bouclier" Type="Self.bouclier" Multiplicity="*" />
+          <End Role="personnage" Type="Self.personnage" Multiplicity="*" />
+        </Association>
+        <Association Name="personnage_vmain">
+          <End Role="personnage" Type="Self.personnage" Multiplicity="*" />
+          <End Role="vmain" Type="Self.vmain" Multiplicity="*" />
+        </Association>
+        <Association Name="personnage_vpied">
+          <End Role="personnage" Type="Self.personnage" Multiplicity="*" />
+          <End Role="vpied" Type="Self.vpied" Multiplicity="*" />
+        </Association>
+        <Association Name="personnage_vtete">
+          <End Role="personnage" Type="Self.personnage" Multiplicity="*" />
+          <End Role="vtete" Type="Self.vtete" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="pimp_your_characterEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="accessoire" EntityType="Self.accessoire" />
+          <EntitySet Name="arme" EntityType="Self.arme" />
+          <EntitySet Name="bouche" EntityType="Self.bouche" />
+          <EntitySet Name="bouclier" EntityType="Self.bouclier" />
+          <EntitySet Name="bras" EntityType="Self.bras" />
+          <EntitySet Name="buste" EntityType="Self.buste" />
+          <EntitySet Name="categorie_accessoire" EntityType="Self.categorie_accessoire" />
+          <EntitySet Name="categorie_arme" EntityType="Self.categorie_arme" />
+          <EntitySet Name="corps" EntityType="Self.corps" />
+          <EntitySet Name="couleur" EntityType="Self.couleur" />
+          <EntitySet Name="ethnie" EntityType="Self.ethnie" />
+          <EntitySet Name="genre" EntityType="Self.genre" />
+          <EntitySet Name="jambe" EntityType="Self.jambe" />
+          <EntitySet Name="nez" EntityType="Self.nez" />
+          <EntitySet Name="personnage" EntityType="Self.personnage" />
+          <EntitySet Name="personnage_tatouage_position" EntityType="Self.personnage_tatouage_position" />
+          <EntitySet Name="position" EntityType="Self.position" />
+          <EntitySet Name="tatouage" EntityType="Self.tatouage" />
+          <EntitySet Name="tete" EntityType="Self.tete" />
+          <EntitySet Name="texture" EntityType="Self.texture" />
+          <EntitySet Name="vbas" EntityType="Self.vbas" />
+          <EntitySet Name="vhaut" EntityType="Self.vhaut" />
+          <EntitySet Name="vmain" EntityType="Self.vmain" />
+          <EntitySet Name="vpied" EntityType="Self.vpied" />
+          <EntitySet Name="vtete" EntityType="Self.vtete" />
+          <EntitySet Name="yeux" EntityType="Self.yeux" />
+          <AssociationSet Name="FK_accessoire_categorie_accessoire" Association="Self.FK_accessoire_categorie_accessoire">
+            <End Role="categorie_accessoire" EntitySet="categorie_accessoire" />
+            <End Role="accessoire" EntitySet="accessoire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_arme_categorie_arme" Association="Self.FK_arme_categorie_arme">
+            <End Role="categorie_arme" EntitySet="categorie_arme" />
+            <End Role="arme" EntitySet="arme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_bouche_couleur" Association="Self.FK_bouche_couleur">
+            <End Role="couleur" EntitySet="couleur" />
+            <End Role="bouche" EntitySet="bouche" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tete_bouche" Association="Self.FK_tete_bouche">
+            <End Role="bouche" EntitySet="bouche" />
+            <End Role="tete" EntitySet="tete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_corps_bras" Association="Self.FK_corps_bras">
+            <End Role="bras" EntitySet="bras" />
+            <End Role="corps" EntitySet="corps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_corps_buste" Association="Self.FK_corps_buste">
+            <End Role="buste" EntitySet="buste" />
+            <End Role="corps" EntitySet="corps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_corps_jambe" Association="Self.FK_corps_jambe">
+            <End Role="jambe" EntitySet="jambe" />
+            <End Role="corps" EntitySet="corps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_corps_tete" Association="Self.FK_corps_tete">
+            <End Role="tete" EntitySet="tete" />
+            <End Role="corps" EntitySet="corps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_corps" Association="Self.FK_personnage_corps">
+            <End Role="corps" EntitySet="corps" />
+            <End Role="personnage" EntitySet="personnage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vbas_couleur" Association="Self.FK_vbas_couleur">
+            <End Role="couleur" EntitySet="couleur" />
+            <End Role="vbas" EntitySet="vbas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vhaut_couleur" Association="Self.FK_vhaut_couleur">
+            <End Role="couleur" EntitySet="couleur" />
+            <End Role="vhaut" EntitySet="vhaut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vmain_couleur" Association="Self.FK_vmain_couleur">
+            <End Role="couleur" EntitySet="couleur" />
+            <End Role="vmain" EntitySet="vmain" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vpied_couleur" Association="Self.FK_vpied_couleur">
+            <End Role="couleur" EntitySet="couleur" />
+            <End Role="vpied" EntitySet="vpied" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vtete_couleur" Association="Self.FK_vtete_couleur">
+            <End Role="couleur" EntitySet="couleur" />
+            <End Role="vtete" EntitySet="vtete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_yeux_couleur" Association="Self.FK_yeux_couleur">
+            <End Role="couleur" EntitySet="couleur" />
+            <End Role="yeux" EntitySet="yeux" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_ethnie" Association="Self.FK_personnage_ethnie">
+            <End Role="ethnie" EntitySet="ethnie" />
+            <End Role="personnage" EntitySet="personnage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_genre" Association="Self.FK_personnage_genre">
+            <End Role="genre" EntitySet="genre" />
+            <End Role="personnage" EntitySet="personnage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tete_nez" Association="Self.FK_tete_nez">
+            <End Role="nez" EntitySet="nez" />
+            <End Role="tete" EntitySet="tete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_tatouage_position_personnage" Association="Self.FK_personnage_tatouage_position_personnage">
+            <End Role="personnage" EntitySet="personnage" />
+            <End Role="personnage_tatouage_position" EntitySet="personnage_tatouage_position" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_vbas" Association="Self.FK_personnage_vbas">
+            <End Role="vbas" EntitySet="vbas" />
+            <End Role="personnage" EntitySet="personnage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_vhaut" Association="Self.FK_personnage_vhaut">
+            <End Role="vhaut" EntitySet="vhaut" />
+            <End Role="personnage" EntitySet="personnage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_tatouage_position_position" Association="Self.FK_personnage_tatouage_position_position">
+            <End Role="position" EntitySet="position" />
+            <End Role="personnage_tatouage_position" EntitySet="personnage_tatouage_position" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personnage_tatouage_position_tatouage" Association="Self.FK_personnage_tatouage_position_tatouage">
+            <End Role="tatouage" EntitySet="tatouage" />
+            <End Role="personnage_tatouage_position" EntitySet="personnage_tatouage_position" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tete_yeux" Association="Self.FK_tete_yeux">
+            <End Role="yeux" EntitySet="yeux" />
+            <End Role="tete" EntitySet="tete" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vbas_texture" Association="Self.FK_vbas_texture">
+            <End Role="texture" EntitySet="texture" />
+            <End Role="vbas" EntitySet="vbas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vhaut_texture" Association="Self.FK_vhaut_texture">
+            <End Role="texture" EntitySet="texture" />
+            <End Role="vhaut" EntitySet="vhaut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vmain_texture" Association="Self.FK_vmain_texture">
+            <End Role="texture" EntitySet="texture" />
+            <End Role="vmain" EntitySet="vmain" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vpied_texture" Association="Self.FK_vpied_texture">
+            <End Role="texture" EntitySet="texture" />
+            <End Role="vpied" EntitySet="vpied" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vtete_texture" Association="Self.FK_vtete_texture">
+            <End Role="texture" EntitySet="texture" />
+            <End Role="vtete" EntitySet="vtete" />
+          </AssociationSet>
+          <AssociationSet Name="personnage_accessoire" Association="Self.personnage_accessoire">
+            <End Role="accessoire" EntitySet="accessoire" />
+            <End Role="personnage" EntitySet="personnage" />
+          </AssociationSet>
+          <AssociationSet Name="personnage_arme" Association="Self.personnage_arme">
+            <End Role="arme" EntitySet="arme" />
+            <End Role="personnage" EntitySet="personnage" />
+          </AssociationSet>
+          <AssociationSet Name="personnage_bouclier" Association="Self.personnage_bouclier">
+            <End Role="bouclier" EntitySet="bouclier" />
+            <End Role="personnage" EntitySet="personnage" />
+          </AssociationSet>
+          <AssociationSet Name="personnage_vmain" Association="Self.personnage_vmain">
+            <End Role="personnage" EntitySet="personnage" />
+            <End Role="vmain" EntitySet="vmain" />
+          </AssociationSet>
+          <AssociationSet Name="personnage_vpied" Association="Self.personnage_vpied">
+            <End Role="personnage" EntitySet="personnage" />
+            <End Role="vpied" EntitySet="vpied" />
+          </AssociationSet>
+          <AssociationSet Name="personnage_vtete" Association="Self.personnage_vtete">
+            <End Role="personnage" EntitySet="personnage" />
+            <End Role="vtete" EntitySet="vtete" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="pimp_your_characterModelStoreContainer" CdmEntityContainer="pimp_your_characterEntities">
+          <EntitySetMapping Name="accessoire">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.accessoire">
+              <MappingFragment StoreEntitySet="accessoire">
+                <ScalarProperty Name="id_accessoire" ColumnName="id_accessoire" />
+                <ScalarProperty Name="label" ColumnName="label" />
+                <ScalarProperty Name="id_categorie_accessoire" ColumnName="id_categorie_accessoire" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="arme">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.arme">
+              <MappingFragment StoreEntitySet="arme">
+                <ScalarProperty Name="id_arme" ColumnName="id_arme" />
+                <ScalarProperty Name="label" ColumnName="label" />
+                <ScalarProperty Name="poids" ColumnName="poids" />
+                <ScalarProperty Name="id_categorie_arme" ColumnName="id_categorie_arme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bouche">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.bouche">
+              <MappingFragment StoreEntitySet="bouche">
+                <ScalarProperty Name="id_bouche" ColumnName="id_bouche" />
+                <ScalarProperty Name="forme" ColumnName="forme" />
+                <ScalarProperty Name="largeur" ColumnName="largeur" />
+                <ScalarProperty Name="hauteur" ColumnName="hauteur" />
+                <ScalarProperty Name="profondeur" ColumnName="profondeur" />
+                <ScalarProperty Name="id_couleur" ColumnName="id_couleur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bouclier">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.bouclier">
+              <MappingFragment StoreEntitySet="bouclier">
+                <ScalarProperty Name="id_bouclier" ColumnName="id_bouclier" />
+                <ScalarProperty Name="label" ColumnName="label" />
+                <ScalarProperty Name="poids" ColumnName="poids" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bras">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.bras">
+              <MappingFragment StoreEntitySet="bras">
+                <ScalarProperty Name="id_bras" ColumnName="id_bras" />
+                <ScalarProperty Name="longueur" ColumnName="longueur" />
+                <ScalarProperty Name="forme" ColumnName="forme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="buste">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.buste">
+              <MappingFragment StoreEntitySet="buste">
+                <ScalarProperty Name="id_buste" ColumnName="id_buste" />
+                <ScalarProperty Name="hauteur" ColumnName="hauteur" />
+                <ScalarProperty Name="largeur" ColumnName="largeur" />
+                <ScalarProperty Name="corpulence" ColumnName="corpulence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categorie_accessoire">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.categorie_accessoire">
+              <MappingFragment StoreEntitySet="categorie_accessoire">
+                <ScalarProperty Name="id_categorie_accessoire" ColumnName="id_categorie_accessoire" />
+                <ScalarProperty Name="label" ColumnName="label" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categorie_arme">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.categorie_arme">
+              <MappingFragment StoreEntitySet="categorie_arme">
+                <ScalarProperty Name="id_categorie_arme" ColumnName="id_categorie_arme" />
+                <ScalarProperty Name="categorie_arme1" ColumnName="categorie_arme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="corps">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.corps">
+              <MappingFragment StoreEntitySet="corps">
+                <ScalarProperty Name="id_corps" ColumnName="id_corps" />
+                <ScalarProperty Name="id_bras" ColumnName="id_bras" />
+                <ScalarProperty Name="id_jambe" ColumnName="id_jambe" />
+                <ScalarProperty Name="id_buste" ColumnName="id_buste" />
+                <ScalarProperty Name="id_tete" ColumnName="id_tete" />
+                <ScalarProperty Name="taille" ColumnName="taille" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="couleur">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.couleur">
+              <MappingFragment StoreEntitySet="couleur">
+                <ScalarProperty Name="id_couleur" ColumnName="id_couleur" />
+                <ScalarProperty Name="label" ColumnName="label" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ethnie">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.ethnie">
+              <MappingFragment StoreEntitySet="ethnie">
+                <ScalarProperty Name="id_ethnie" ColumnName="id_ethnie" />
+                <ScalarProperty Name="label" ColumnName="label" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="genre">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.genre">
+              <MappingFragment StoreEntitySet="genre">
+                <ScalarProperty Name="id_genre" ColumnName="id_genre" />
+                <ScalarProperty Name="label" ColumnName="label" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jambe">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.jambe">
+              <MappingFragment StoreEntitySet="jambe">
+                <ScalarProperty Name="id_jambe" ColumnName="id_jambe" />
+                <ScalarProperty Name="hauteur" ColumnName="hauteur" />
+                <ScalarProperty Name="forme" ColumnName="forme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nez">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.nez">
+              <MappingFragment StoreEntitySet="nez">
+                <ScalarProperty Name="id_nez" ColumnName="id_nez" />
+                <ScalarProperty Name="hauteur" ColumnName="hauteur" />
+                <ScalarProperty Name="largeur" ColumnName="largeur" />
+                <ScalarProperty Name="profondeur" ColumnName="profondeur" />
+                <ScalarProperty Name="forme" ColumnName="forme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personnage">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.personnage">
+              <MappingFragment StoreEntitySet="personnage">
+                <ScalarProperty Name="id_personnage" ColumnName="id_personnage" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="id_ethnie" ColumnName="id_ethnie" />
+                <ScalarProperty Name="id_genre" ColumnName="id_genre" />
+                <ScalarProperty Name="id_vbas" ColumnName="id_vbas" />
+                <ScalarProperty Name="id_vhaut" ColumnName="id_vhaut" />
+                <ScalarProperty Name="id_corps" ColumnName="id_corps" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personnage_tatouage_position">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.personnage_tatouage_position">
+              <MappingFragment StoreEntitySet="personnage_tatouage_position">
+                <ScalarProperty Name="id_personnage" ColumnName="id_personnage" />
+                <ScalarProperty Name="id_position" ColumnName="id_position" />
+                <ScalarProperty Name="id_tatouage" ColumnName="id_tatouage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="position">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.position">
+              <MappingFragment StoreEntitySet="position">
+                <ScalarProperty Name="id_position" ColumnName="id_position" />
+                <ScalarProperty Name="label" ColumnName="label" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tatouage">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.tatouage">
+              <MappingFragment StoreEntitySet="tatouage">
+                <ScalarProperty Name="id_tatouage" ColumnName="id_tatouage" />
+                <ScalarProperty Name="label" ColumnName="label" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tete">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.tete">
+              <MappingFragment StoreEntitySet="tete">
+                <ScalarProperty Name="id_tete" ColumnName="id_tete" />
+                <ScalarProperty Name="id_nez" ColumnName="id_nez" />
+                <ScalarProperty Name="id_bouche" ColumnName="id_bouche" />
+                <ScalarProperty Name="id_yeux" ColumnName="id_yeux" />
+                <ScalarProperty Name="hauteur" ColumnName="hauteur" />
+                <ScalarProperty Name="largeur" ColumnName="largeur" />
+                <ScalarProperty Name="forme" ColumnName="forme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="texture">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.texture">
+              <MappingFragment StoreEntitySet="texture">
+                <ScalarProperty Name="id_texture" ColumnName="id_texture" />
+                <ScalarProperty Name="label" ColumnName="label" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vbas">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.vbas">
+              <MappingFragment StoreEntitySet="vbas">
+                <ScalarProperty Name="id_vbas" ColumnName="id_vbas" />
+                <ScalarProperty Name="label" ColumnName="label" />
+                <ScalarProperty Name="poids" ColumnName="poids" />
+                <ScalarProperty Name="id_texture" ColumnName="id_texture" />
+                <ScalarProperty Name="id_couleur" ColumnName="id_couleur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vhaut">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.vhaut">
+              <MappingFragment StoreEntitySet="vhaut">
+                <ScalarProperty Name="id_vhaut" ColumnName="id_vhaut" />
+                <ScalarProperty Name="label" ColumnName="label" />
+                <ScalarProperty Name="poids" ColumnName="poids" />
+                <ScalarProperty Name="id_texture" ColumnName="id_texture" />
+                <ScalarProperty Name="id_couleur" ColumnName="id_couleur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vmain">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.vmain">
+              <MappingFragment StoreEntitySet="vmain">
+                <ScalarProperty Name="id_vmain" ColumnName="id_vmain" />
+                <ScalarProperty Name="label" ColumnName="label" />
+                <ScalarProperty Name="poids" ColumnName="poids" />
+                <ScalarProperty Name="id_texture" ColumnName="id_texture" />
+                <ScalarProperty Name="id_couleur" ColumnName="id_couleur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vpied">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.vpied">
+              <MappingFragment StoreEntitySet="vpied">
+                <ScalarProperty Name="id_vpied" ColumnName="id_vpied" />
+                <ScalarProperty Name="label" ColumnName="label" />
+                <ScalarProperty Name="poids" ColumnName="poids" />
+                <ScalarProperty Name="id_texture" ColumnName="id_texture" />
+                <ScalarProperty Name="id_couleur" ColumnName="id_couleur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vtete">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.vtete">
+              <MappingFragment StoreEntitySet="vtete">
+                <ScalarProperty Name="id_vtete" ColumnName="id_vtete" />
+                <ScalarProperty Name="label" ColumnName="label" />
+                <ScalarProperty Name="poids" ColumnName="poids" />
+                <ScalarProperty Name="id_texture" ColumnName="id_texture" />
+                <ScalarProperty Name="id_couleur" ColumnName="id_couleur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="yeux">
+            <EntityTypeMapping TypeName="pimp_your_characterModel.yeux">
+              <MappingFragment StoreEntitySet="yeux">
+                <ScalarProperty Name="id_yeux" ColumnName="id_yeux" />
+                <ScalarProperty Name="forme" ColumnName="forme" />
+                <ScalarProperty Name="hauteur" ColumnName="hauteur" />
+                <ScalarProperty Name="largeur" ColumnName="largeur" />
+                <ScalarProperty Name="profondeur" ColumnName="profondeur" />
+                <ScalarProperty Name="ecartement" ColumnName="ecartement" />
+                <ScalarProperty Name="id_couleur" ColumnName="id_couleur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="personnage_accessoire" TypeName="pimp_your_characterModel.personnage_accessoire" StoreEntitySet="personnage_accessoire">
+            <EndProperty Name="accessoire">
+              <ScalarProperty Name="id_accessoire" ColumnName="id_accessoire" />
+            </EndProperty>
+            <EndProperty Name="personnage">
+              <ScalarProperty Name="id_personnage" ColumnName="id_personnage" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="personnage_arme" TypeName="pimp_your_characterModel.personnage_arme" StoreEntitySet="personnage_arme">
+            <EndProperty Name="arme">
+              <ScalarProperty Name="id_arme" ColumnName="id_arme" />
+            </EndProperty>
+            <EndProperty Name="personnage">
+              <ScalarProperty Name="id_personnage" ColumnName="id_personnage" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="personnage_bouclier" TypeName="pimp_your_characterModel.personnage_bouclier" StoreEntitySet="personnage_bouclier">
+            <EndProperty Name="bouclier">
+              <ScalarProperty Name="id_bouclier" ColumnName="id_bouclier" />
+            </EndProperty>
+            <EndProperty Name="personnage">
+              <ScalarProperty Name="id_personnage" ColumnName="id_personnage" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="personnage_vmain" TypeName="pimp_your_characterModel.personnage_vmain" StoreEntitySet="personnage_vmain">
+            <EndProperty Name="personnage">
+              <ScalarProperty Name="id_personnage" ColumnName="id_personnage" />
+            </EndProperty>
+            <EndProperty Name="vmain">
+              <ScalarProperty Name="id_vmain" ColumnName="id_vmain" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="personnage_vpied" TypeName="pimp_your_characterModel.personnage_vpied" StoreEntitySet="personnage_vpied">
+            <EndProperty Name="personnage">
+              <ScalarProperty Name="id_personnage" ColumnName="id_personnage" />
+            </EndProperty>
+            <EndProperty Name="vpied">
+              <ScalarProperty Name="id_vpied" ColumnName="id_vpied" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="personnage_vtete" TypeName="pimp_your_characterModel.personnage_vtete" StoreEntitySet="personnage_vtete">
+            <EndProperty Name="personnage">
+              <ScalarProperty Name="id_personnage" ColumnName="id_personnage" />
+            </EndProperty>
+            <EndProperty Name="vtete">
+              <ScalarProperty Name="id_vtete" ColumnName="id_vtete" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

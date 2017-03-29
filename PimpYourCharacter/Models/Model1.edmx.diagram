@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f7ec5daab9e24ed1bfc83430a0b0153c" Name="Diagram1">
+        <EntityTypeShape EntityType="pimp_your_characterModel.accessoire" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.arme" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.bouche" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.bouclier" Width="1.5" PointX="7.5" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.bras" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.buste" Width="1.5" PointX="5.25" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.categorie_accessoire" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.categorie_arme" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.corps" Width="1.5" PointX="7.5" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.couleur" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.ethnie" Width="1.5" PointX="7.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.genre" Width="1.5" PointX="7.5" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.jambe" Width="1.5" PointX="5.25" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.nez" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.personnage" Width="1.5" PointX="9.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.personnage_tatouage_position" Width="1.5" PointX="12" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.position" Width="1.5" PointX="9.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.tatouage" Width="1.5" PointX="9.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.tete" Width="1.5" PointX="5.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.texture" Width="1.5" PointX="0.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.vbas" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.vhaut" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.vmain" Width="1.5" PointX="12" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.vpied" Width="1.5" PointX="15" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.vtete" Width="1.5" PointX="12" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="pimp_your_characterModel.yeux" Width="1.5" PointX="3" PointY="19.875" IsExpanded="true" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_accessoire_categorie_accessoire" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_arme_categorie_arme" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_bouche_couleur" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_tete_bouche" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_corps_bras" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_corps_buste" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_corps_jambe" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_corps_tete" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_personnage_corps" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_vbas_couleur" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_vhaut_couleur" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_vmain_couleur" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_vpied_couleur" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_vtete_couleur" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_yeux_couleur" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_personnage_ethnie" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_personnage_genre" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_tete_nez" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_personnage_tatouage_position_personnage" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_personnage_vbas" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_personnage_vhaut" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_personnage_tatouage_position_position" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_personnage_tatouage_position_tatouage" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_tete_yeux" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_vbas_texture" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_vhaut_texture" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_vmain_texture" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_vpied_texture" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.FK_vtete_texture" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.personnage_accessoire" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.personnage_arme" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.personnage_bouclier" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.personnage_vmain" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.personnage_vpied" ManuallyRouted="false" />
+        <AssociationConnector Association="pimp_your_characterModel.personnage_vtete" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
