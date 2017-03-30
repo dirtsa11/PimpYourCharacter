@@ -382,6 +382,7 @@
     <Content Include="Views\couleurs\Details.cshtml" />
     <Content Include="Views\couleurs\Edit.cshtml" />
     <Content Include="Views\couleurs\Index.cshtml" />
+    <Content Include="Views\Home\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
