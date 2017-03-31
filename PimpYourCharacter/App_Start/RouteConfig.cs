@@ -18,6 +18,12 @@ namespace PimpYourCharacter
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Nez",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "nez", action = "Index", id = UrlParameter.Optional }
+            );
         }
     }
 }
