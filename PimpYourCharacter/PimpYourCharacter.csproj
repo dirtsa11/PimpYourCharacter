@@ -198,9 +198,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BrasController.cs" />
+    <Compile Include="Controllers\BustesController.cs" />
     <Compile Include="Controllers\CouleursController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JambesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NezController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -382,6 +386,26 @@
     <Content Include="Views\Couleurs\Details.cshtml" />
     <Content Include="Views\Couleurs\Edit.cshtml" />
     <Content Include="Views\Couleurs\Index.cshtml" />
+    <Content Include="Views\Nez\Create.cshtml" />
+    <Content Include="Views\Nez\Delete.cshtml" />
+    <Content Include="Views\Nez\Details.cshtml" />
+    <Content Include="Views\Nez\Edit.cshtml" />
+    <Content Include="Views\Nez\Index.cshtml" />
+    <Content Include="Views\Jambes\Create.cshtml" />
+    <Content Include="Views\Jambes\Delete.cshtml" />
+    <Content Include="Views\Jambes\Details.cshtml" />
+    <Content Include="Views\Jambes\Edit.cshtml" />
+    <Content Include="Views\Jambes\Index.cshtml" />
+    <Content Include="Views\Bras\Create.cshtml" />
+    <Content Include="Views\Bras\Delete.cshtml" />
+    <Content Include="Views\Bras\Details.cshtml" />
+    <Content Include="Views\Bras\Edit.cshtml" />
+    <Content Include="Views\Bras\Index.cshtml" />
+    <Content Include="Views\Bustes\Create.cshtml" />
+    <Content Include="Views\Bustes\Delete.cshtml" />
+    <Content Include="Views\Bustes\Details.cshtml" />
+    <Content Include="Views\Bustes\Edit.cshtml" />
+    <Content Include="Views\Bustes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

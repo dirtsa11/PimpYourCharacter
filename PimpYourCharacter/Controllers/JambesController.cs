@@ -10,107 +10,107 @@ using PimpYourCharacter.Models;
 
 namespace PimpYourCharacter.Controllers
 {
-    public class NezController : Controller
+    public class JambesController : Controller
     {
         private pimp_your_characterEntities db = new pimp_your_characterEntities();
 
-        // GET: Nez
+        // GET: Jambes
         public ActionResult Index()
         {
-            return View(db.nez.ToList());
+            return View(db.jambe.ToList());
         }
 
-        // GET: Nez/Details/5
+        // GET: Jambes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            nez nez = db.nez.Find(id);
-            if (nez == null)
+            jambe jambe = db.jambe.Find(id);
+            if (jambe == null)
             {
                 return HttpNotFound();
             }
-            return View(nez);
+            return View(jambe);
         }
 
-        // GET: Nez/Create
+        // GET: Jambes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Nez/Create
+        // POST: Jambes/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_nez,hauteur,largeur,profondeur,forme")] nez nez)
+        public ActionResult Create([Bind(Include = "id_jambe,hauteur,forme")] jambe jambe)
         {
             if (ModelState.IsValid)
             {
-                db.nez.Add(nez);
+                db.jambe.Add(jambe);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(nez);
+            return View(jambe);
         }
 
-        // GET: Nez/Edit/5
+        // GET: Jambes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            nez nez = db.nez.Find(id);
-            if (nez == null)
+            jambe jambe = db.jambe.Find(id);
+            if (jambe == null)
             {
                 return HttpNotFound();
             }
-            return View(nez);
+            return View(jambe);
         }
 
-        // POST: Nez/Edit/5
+        // POST: Jambes/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_nez,hauteur,largeur,profondeur,forme")] nez nez)
+        public ActionResult Edit([Bind(Include = "id_jambe,hauteur,forme")] jambe jambe)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(nez).State = EntityState.Modified;
+                db.Entry(jambe).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(nez);
+            return View(jambe);
         }
 
-        // GET: Nez/Delete/5
+        // GET: Jambes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            nez nez = db.nez.Find(id);
-            if (nez == null)
+            jambe jambe = db.jambe.Find(id);
+            if (jambe == null)
             {
                 return HttpNotFound();
             }
-            return View(nez);
+            return View(jambe);
         }
 
-        // POST: Nez/Delete/5
+        // POST: Jambes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            nez nez = db.nez.Find(id);
-            db.nez.Remove(nez);
+            jambe jambe = db.jambe.Find(id);
+            db.jambe.Remove(jambe);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
