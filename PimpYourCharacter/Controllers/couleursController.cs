@@ -17,7 +17,13 @@ namespace PimpYourCharacter.Controllers
         // GET: Couleurs
         public ActionResult Index()
         {
-            return View(db.couleur.ToList());
+            try
+            {
+                return View(db.couleur.ToList());
+            }catch(Exception e)
+            {
+                return View();
+            }
         }
 
         // GET: Couleurs/Details/5
