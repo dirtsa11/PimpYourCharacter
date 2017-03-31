@@ -198,7 +198,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\couleursController.cs" />
+    <Compile Include="Controllers\CouleursController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -372,11 +372,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\couleurs\Create.cshtml" />
-    <Content Include="Views\couleurs\Delete.cshtml" />
-    <Content Include="Views\couleurs\Details.cshtml" />
-    <Content Include="Views\couleurs\Edit.cshtml" />
-    <Content Include="Views\couleurs\Index.cshtml" />
+    <Content Include="Views\Couleurs\Create.cshtml" />
+    <Content Include="Views\Couleurs\Delete.cshtml" />
+    <Content Include="Views\Couleurs\Details.cshtml" />
+    <Content Include="Views\Couleurs\Edit.cshtml" />
+    <Content Include="Views\Couleurs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
