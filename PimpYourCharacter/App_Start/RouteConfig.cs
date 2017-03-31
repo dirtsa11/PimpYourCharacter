@@ -8,7 +8,7 @@ using System.Web.Routing;
 namespace PimpYourCharacter
 {
     public class RouteConfig
-    {
+    { 
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
@@ -20,10 +20,9 @@ namespace PimpYourCharacter
             );
 
             routes.MapRoute(
-                name: "Nez",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "nez", action = "Index", id = UrlParameter.Optional }
-            );
+                name: "Couleur",
+                url: "Couleurs/{valeur1}/{valeur2}",
+                defaults: new { controller = "Home_Couleur", action = "Couleurs" });
         }
     }
 }
