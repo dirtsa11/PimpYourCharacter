@@ -14,15 +14,16 @@ namespace PimpYourCharacter
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Couleur",
+                url: "Couleurs/{action}",
+                defaults: new { controller = "Couleurs", action = "Index" });
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
-            routes.MapRoute(
-                name: "Couleur",
-                url: "Couleurs/{valeur1}/{valeur2}",
-                defaults: new { controller = "Home_Couleur", action = "Couleurs" });
         }
     }
 }

@@ -16,18 +16,25 @@
         </th>
         <th></th>
     </tr>
+    @try
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.label)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id_couleur }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id_couleur }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id_couleur })
+                </td>
+            </tr>
+        }
+    } catch (Exception e)
+    {
+        Console.WriteLine("ok");
+    }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.label)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_couleur }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_couleur }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_couleur })
-        </td>
-    </tr>
-}
 
 </table>
