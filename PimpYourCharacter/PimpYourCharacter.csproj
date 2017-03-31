@@ -198,6 +198,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BoucheController.cs" />
     <Compile Include="Controllers\CouleursController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -382,6 +383,11 @@
     <Content Include="Views\Couleurs\Details.cshtml" />
     <Content Include="Views\Couleurs\Edit.cshtml" />
     <Content Include="Views\Couleurs\Index.cshtml" />
+    <Content Include="Views\Bouche\Create.cshtml" />
+    <Content Include="Views\Bouche\Delete.cshtml" />
+    <Content Include="Views\Bouche\Details.cshtml" />
+    <Content Include="Views\Bouche\Edit.cshtml" />
+    <Content Include="Views\Bouche\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
