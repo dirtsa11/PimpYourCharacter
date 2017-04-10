@@ -202,6 +202,7 @@
     <Compile Include="Controllers\CouleursController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\YeuxController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -388,6 +389,11 @@
     <Content Include="Views\Bouche\Details.cshtml" />
     <Content Include="Views\Bouche\Edit.cshtml" />
     <Content Include="Views\Bouche\Index.cshtml" />
+    <Content Include="Views\Yeux\Create.cshtml" />
+    <Content Include="Views\Yeux\Delete.cshtml" />
+    <Content Include="Views\Yeux\Details.cshtml" />
+    <Content Include="Views\Yeux\Edit.cshtml" />
+    <Content Include="Views\Yeux\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
