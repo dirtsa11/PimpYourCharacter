@@ -10,107 +10,107 @@ using PimpYourCharacter.Models;
 
 namespace PimpYourCharacter.Controllers
 {
-    public class NezController : Controller
+    public class BouclierController : Controller
     {
         private pimp_your_characterEntities db = new pimp_your_characterEntities();
 
-        // GET: Nez
+        // GET: Bouclier
         public ActionResult Index()
         {
-            return View(db.nez.ToList());
+            return View(db.bouclier.ToList());
         }
 
-        // GET: Nez/Details/5
+        // GET: Bouclier/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            nez nez = db.nez.Find(id);
-            if (nez == null)
+            bouclier bouclier = db.bouclier.Find(id);
+            if (bouclier == null)
             {
                 return HttpNotFound();
             }
-            return View(nez);
+            return View(bouclier);
         }
 
-        // GET: Nez/Create
+        // GET: Bouclier/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Nez/Create
+        // POST: Bouclier/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_nez,hauteur,largeur,profondeur,forme")] nez nez)
+        public ActionResult Create([Bind(Include = "id_bouclier,label,poids")] bouclier bouclier)
         {
             if (ModelState.IsValid)
             {
-                db.nez.Add(nez);
+                db.bouclier.Add(bouclier);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(nez);
+            return View(bouclier);
         }
 
-        // GET: Nez/Edit/5
+        // GET: Bouclier/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            nez nez = db.nez.Find(id);
-            if (nez == null)
+            bouclier bouclier = db.bouclier.Find(id);
+            if (bouclier == null)
             {
                 return HttpNotFound();
             }
-            return View(nez);
+            return View(bouclier);
         }
 
-        // POST: Nez/Edit/5
+        // POST: Bouclier/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_nez,hauteur,largeur,profondeur,forme")] nez nez)
+        public ActionResult Edit([Bind(Include = "id_bouclier,label,poids")] bouclier bouclier)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(nez).State = EntityState.Modified;
+                db.Entry(bouclier).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(nez);
+            return View(bouclier);
         }
 
-        // GET: Nez/Delete/5
+        // GET: Bouclier/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            nez nez = db.nez.Find(id);
-            if (nez == null)
+            bouclier bouclier = db.bouclier.Find(id);
+            if (bouclier == null)
             {
                 return HttpNotFound();
             }
-            return View(nez);
+            return View(bouclier);
         }
 
-        // POST: Nez/Delete/5
+        // POST: Bouclier/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            nez nez = db.nez.Find(id);
-            db.nez.Remove(nez);
+            bouclier bouclier = db.bouclier.Find(id);
+            db.bouclier.Remove(bouclier);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

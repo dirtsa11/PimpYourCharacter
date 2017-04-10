@@ -1,0 +1,58 @@
+﻿@model PimpYourCharacter.Models.corps
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>corps</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.taille)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.taille)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bras.forme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bras.forme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.buste.id_buste)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.buste.id_buste)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.jambe.forme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.jambe.forme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tete.forme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tete.forme)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_corps }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

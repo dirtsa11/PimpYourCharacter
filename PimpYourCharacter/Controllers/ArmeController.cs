@@ -10,107 +10,112 @@ using PimpYourCharacter.Models;
 
 namespace PimpYourCharacter.Controllers
 {
-    public class NezController : Controller
+    public class ArmeController : Controller
     {
         private pimp_your_characterEntities db = new pimp_your_characterEntities();
 
-        // GET: Nez
+        // GET: Arme
         public ActionResult Index()
         {
-            return View(db.nez.ToList());
+            var arme = db.arme.Include(a => a.categorie_arme);
+            return View(arme.ToList());
         }
 
-        // GET: Nez/Details/5
+        // GET: Arme/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            nez nez = db.nez.Find(id);
-            if (nez == null)
+            arme arme = db.arme.Find(id);
+            if (arme == null)
             {
                 return HttpNotFound();
             }
-            return View(nez);
+            return View(arme);
         }
 
-        // GET: Nez/Create
+        // GET: Arme/Create
         public ActionResult Create()
         {
+            ViewBag.id_categorie_arme = new SelectList(db.categorie_arme, "id_categorie_arme", "categorie_arme1");
             return View();
         }
 
-        // POST: Nez/Create
+        // POST: Arme/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_nez,hauteur,largeur,profondeur,forme")] nez nez)
+        public ActionResult Create([Bind(Include = "id_arme,label,poids,id_categorie_arme")] arme arme)
         {
             if (ModelState.IsValid)
             {
-                db.nez.Add(nez);
+                db.arme.Add(arme);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(nez);
+            ViewBag.id_categorie_arme = new SelectList(db.categorie_arme, "id_categorie_arme", "categorie_arme1", arme.id_categorie_arme);
+            return View(arme);
         }
 
-        // GET: Nez/Edit/5
+        // GET: Arme/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            nez nez = db.nez.Find(id);
-            if (nez == null)
+            arme arme = db.arme.Find(id);
+            if (arme == null)
             {
                 return HttpNotFound();
             }
-            return View(nez);
+            ViewBag.id_categorie_arme = new SelectList(db.categorie_arme, "id_categorie_arme", "categorie_arme1", arme.id_categorie_arme);
+            return View(arme);
         }
 
-        // POST: Nez/Edit/5
+        // POST: Arme/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_nez,hauteur,largeur,profondeur,forme")] nez nez)
+        public ActionResult Edit([Bind(Include = "id_arme,label,poids,id_categorie_arme")] arme arme)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(nez).State = EntityState.Modified;
+                db.Entry(arme).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(nez);
+            ViewBag.id_categorie_arme = new SelectList(db.categorie_arme, "id_categorie_arme", "categorie_arme1", arme.id_categorie_arme);
+            return View(arme);
         }
 
-        // GET: Nez/Delete/5
+        // GET: Arme/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            nez nez = db.nez.Find(id);
-            if (nez == null)
+            arme arme = db.arme.Find(id);
+            if (arme == null)
             {
                 return HttpNotFound();
             }
-            return View(nez);
+            return View(arme);
         }
 
-        // POST: Nez/Delete/5
+        // POST: Arme/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            nez nez = db.nez.Find(id);
-            db.nez.Remove(nez);
+            arme arme = db.arme.Find(id);
+            db.arme.Remove(arme);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
