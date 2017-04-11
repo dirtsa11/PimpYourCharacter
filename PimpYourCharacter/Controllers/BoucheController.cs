@@ -128,5 +128,27 @@ namespace PimpYourCharacter.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult search(int id_bouche, String forme, int largeur, int hauteur, int profondeur, int id_couleur) {
+
+            List<bouche> repQuery = new List<bouche>();
+            String query = "Select * from bou in db.bouche where ";
+
+            String idBoucheQuery = (id_bouche == -1) ? "bou.id_bouche == "+id_bouche+" and " : "";
+            String formeQuery = (forme.CompareTo("") == 0 || forme == null ) ? "bou.forme == " + forme + " and " : "";
+            String largeurQuery = (largeur == -1) ? "bou.largeur == " + largeur + " and " : "";
+            String hauteurQuery = (hauteur == -1) ? "bou.hauteur == " + hauteur + " and " : "";
+            String profondeurQuery = (profondeur == -1) ? "bou.profondeur == " + profondeur + " and " : "";
+            String idCouleurQuery = (id_couleur == -1) ? "bou.id_couleur == " + id_couleur + " and " : "";
+
+            query += idBoucheQuery + formeQuery + largeurQuery + hauteurQuery + profondeurQuery + idCouleurQuery;
+
+            //Retire le dernier and ATTENTION ne gere pas le cas ou aucun champs est valide
+            query = query.Substring(0, query.Length - 4);
+
+            Console.WriteLine("{0}",query);
+
+            return View(repQuery);
+        }
     }
 }
