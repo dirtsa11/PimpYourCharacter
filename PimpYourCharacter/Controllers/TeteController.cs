@@ -10,107 +10,120 @@ using PimpYourCharacter.Models;
 
 namespace PimpYourCharacter.Controllers
 {
-    public class NezController : Controller
+    public class TeteController : Controller
     {
         private pimp_your_characterEntities db = new pimp_your_characterEntities();
 
-        // GET: Nez
+        // GET: Tete
         public ActionResult Index()
         {
-            return View(db.nez.ToList());
+            var tete = db.tete.Include(t => t.bouche).Include(t => t.nez).Include(t => t.yeux);
+            return View(tete.ToList());
         }
 
-        // GET: Nez/Details/5
+        // GET: Tete/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            nez nez = db.nez.Find(id);
-            if (nez == null)
+            tete tete = db.tete.Find(id);
+            if (tete == null)
             {
                 return HttpNotFound();
             }
-            return View(nez);
+            return View(tete);
         }
 
-        // GET: Nez/Create
+        // GET: Tete/Create
         public ActionResult Create()
         {
+            ViewBag.id_bouche = new SelectList(db.bouche, "id_bouche", "forme");
+            ViewBag.id_nez = new SelectList(db.nez, "id_nez", "forme");
+            ViewBag.id_yeux = new SelectList(db.yeux, "id_yeux", "forme");
             return View();
         }
 
-        // POST: Nez/Create
+        // POST: Tete/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_nez,hauteur,largeur,profondeur,forme")] nez nez)
+        public ActionResult Create([Bind(Include = "id_tete,id_nez,id_bouche,id_yeux,hauteur,largeur,forme")] tete tete)
         {
             if (ModelState.IsValid)
             {
-                db.nez.Add(nez);
+                db.tete.Add(tete);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(nez);
+            ViewBag.id_bouche = new SelectList(db.bouche, "id_bouche", "forme", tete.id_bouche);
+            ViewBag.id_nez = new SelectList(db.nez, "id_nez", "forme", tete.id_nez);
+            ViewBag.id_yeux = new SelectList(db.yeux, "id_yeux", "forme", tete.id_yeux);
+            return View(tete);
         }
 
-        // GET: Nez/Edit/5
+        // GET: Tete/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            nez nez = db.nez.Find(id);
-            if (nez == null)
+            tete tete = db.tete.Find(id);
+            if (tete == null)
             {
                 return HttpNotFound();
             }
-            return View(nez);
+            ViewBag.id_bouche = new SelectList(db.bouche, "id_bouche", "forme", tete.id_bouche);
+            ViewBag.id_nez = new SelectList(db.nez, "id_nez", "forme", tete.id_nez);
+            ViewBag.id_yeux = new SelectList(db.yeux, "id_yeux", "forme", tete.id_yeux);
+            return View(tete);
         }
 
-        // POST: Nez/Edit/5
+        // POST: Tete/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_nez,hauteur,largeur,profondeur,forme")] nez nez)
+        public ActionResult Edit([Bind(Include = "id_tete,id_nez,id_bouche,id_yeux,hauteur,largeur,forme")] tete tete)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(nez).State = EntityState.Modified;
+                db.Entry(tete).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(nez);
+            ViewBag.id_bouche = new SelectList(db.bouche, "id_bouche", "forme", tete.id_bouche);
+            ViewBag.id_nez = new SelectList(db.nez, "id_nez", "forme", tete.id_nez);
+            ViewBag.id_yeux = new SelectList(db.yeux, "id_yeux", "forme", tete.id_yeux);
+            return View(tete);
         }
 
-        // GET: Nez/Delete/5
+        // GET: Tete/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            nez nez = db.nez.Find(id);
-            if (nez == null)
+            tete tete = db.tete.Find(id);
+            if (tete == null)
             {
                 return HttpNotFound();
             }
-            return View(nez);
+            return View(tete);
         }
 
-        // POST: Nez/Delete/5
+        // POST: Tete/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            nez nez = db.nez.Find(id);
-            db.nez.Remove(nez);
+            tete tete = db.tete.Find(id);
+            db.tete.Remove(tete);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

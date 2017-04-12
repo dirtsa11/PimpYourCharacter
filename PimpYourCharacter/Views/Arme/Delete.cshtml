@@ -1,0 +1,48 @@
+﻿@model PimpYourCharacter.Models.arme
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>arme</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.label)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.label)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.poids)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.poids)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.categorie_arme.categorie_arme1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categorie_arme.categorie_arme1)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

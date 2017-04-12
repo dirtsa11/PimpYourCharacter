@@ -10,107 +10,107 @@ using PimpYourCharacter.Models;
 
 namespace PimpYourCharacter.Controllers
 {
-    public class NezController : Controller
+    public class EthnieController : Controller
     {
         private pimp_your_characterEntities db = new pimp_your_characterEntities();
 
-        // GET: Nez
+        // GET: Ethnie
         public ActionResult Index()
         {
-            return View(db.nez.ToList());
+            return View(db.ethnie.ToList());
         }
 
-        // GET: Nez/Details/5
+        // GET: Ethnie/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            nez nez = db.nez.Find(id);
-            if (nez == null)
+            ethnie ethnie = db.ethnie.Find(id);
+            if (ethnie == null)
             {
                 return HttpNotFound();
             }
-            return View(nez);
+            return View(ethnie);
         }
 
-        // GET: Nez/Create
+        // GET: Ethnie/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Nez/Create
+        // POST: Ethnie/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_nez,hauteur,largeur,profondeur,forme")] nez nez)
+        public ActionResult Create([Bind(Include = "id_ethnie,label")] ethnie ethnie)
         {
             if (ModelState.IsValid)
             {
-                db.nez.Add(nez);
+                db.ethnie.Add(ethnie);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(nez);
+            return View(ethnie);
         }
 
-        // GET: Nez/Edit/5
+        // GET: Ethnie/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            nez nez = db.nez.Find(id);
-            if (nez == null)
+            ethnie ethnie = db.ethnie.Find(id);
+            if (ethnie == null)
             {
                 return HttpNotFound();
             }
-            return View(nez);
+            return View(ethnie);
         }
 
-        // POST: Nez/Edit/5
+        // POST: Ethnie/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_nez,hauteur,largeur,profondeur,forme")] nez nez)
+        public ActionResult Edit([Bind(Include = "id_ethnie,label")] ethnie ethnie)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(nez).State = EntityState.Modified;
+                db.Entry(ethnie).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(nez);
+            return View(ethnie);
         }
 
-        // GET: Nez/Delete/5
+        // GET: Ethnie/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            nez nez = db.nez.Find(id);
-            if (nez == null)
+            ethnie ethnie = db.ethnie.Find(id);
+            if (ethnie == null)
             {
                 return HttpNotFound();
             }
-            return View(nez);
+            return View(ethnie);
         }
 
-        // POST: Nez/Delete/5
+        // POST: Ethnie/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            nez nez = db.nez.Find(id);
-            db.nez.Remove(nez);
+            ethnie ethnie = db.ethnie.Find(id);
+            db.ethnie.Remove(ethnie);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

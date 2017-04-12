@@ -10,107 +10,107 @@ using PimpYourCharacter.Models;
 
 namespace PimpYourCharacter.Controllers
 {
-    public class NezController : Controller
+    public class TextureController : Controller
     {
         private pimp_your_characterEntities db = new pimp_your_characterEntities();
 
-        // GET: Nez
+        // GET: Texture
         public ActionResult Index()
         {
-            return View(db.nez.ToList());
+            return View(db.texture.ToList());
         }
 
-        // GET: Nez/Details/5
+        // GET: Texture/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            nez nez = db.nez.Find(id);
-            if (nez == null)
+            texture texture = db.texture.Find(id);
+            if (texture == null)
             {
                 return HttpNotFound();
             }
-            return View(nez);
+            return View(texture);
         }
 
-        // GET: Nez/Create
+        // GET: Texture/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Nez/Create
+        // POST: Texture/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_nez,hauteur,largeur,profondeur,forme")] nez nez)
+        public ActionResult Create([Bind(Include = "id_texture,label")] texture texture)
         {
             if (ModelState.IsValid)
             {
-                db.nez.Add(nez);
+                db.texture.Add(texture);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(nez);
+            return View(texture);
         }
 
-        // GET: Nez/Edit/5
+        // GET: Texture/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            nez nez = db.nez.Find(id);
-            if (nez == null)
+            texture texture = db.texture.Find(id);
+            if (texture == null)
             {
                 return HttpNotFound();
             }
-            return View(nez);
+            return View(texture);
         }
 
-        // POST: Nez/Edit/5
+        // POST: Texture/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_nez,hauteur,largeur,profondeur,forme")] nez nez)
+        public ActionResult Edit([Bind(Include = "id_texture,label")] texture texture)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(nez).State = EntityState.Modified;
+                db.Entry(texture).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(nez);
+            return View(texture);
         }
 
-        // GET: Nez/Delete/5
+        // GET: Texture/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            nez nez = db.nez.Find(id);
-            if (nez == null)
+            texture texture = db.texture.Find(id);
+            if (texture == null)
             {
                 return HttpNotFound();
             }
-            return View(nez);
+            return View(texture);
         }
 
-        // POST: Nez/Delete/5
+        // POST: Texture/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            nez nez = db.nez.Find(id);
-            db.nez.Remove(nez);
+            texture texture = db.texture.Find(id);
+            db.texture.Remove(texture);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
