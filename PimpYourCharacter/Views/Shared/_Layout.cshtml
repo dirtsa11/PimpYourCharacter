@@ -108,6 +108,33 @@
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Équipement<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <asp:DropDownList ID="arme" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="Arme">@Html.ActionLink("Arme", "Index", "Arme")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                            <li>
+                                <asp:DropDownList ID="bouclier" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="Bouclier">@Html.ActionLink("Bouclier", "Index", "Bouclier")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                            <li>
+                                <asp:DropDownList ID="categarme" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="CategorieArme">@Html.ActionLink("CategorieArme", "Index", "CategorieArme")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                            <li>
+                                <asp:DropDownList ID="access" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="Accessoire">@Html.ActionLink("Accessoire", "Index", "Accessoire")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                            <li>
+                                <asp:DropDownList ID="categaccess" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="CategorieAccess">@Html.ActionLink("CategorieAccessoire", "Index", "CategorieAccess")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
 
