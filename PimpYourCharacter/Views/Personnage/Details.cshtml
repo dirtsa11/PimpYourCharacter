@@ -1,0 +1,74 @@
+﻿@model PimpYourCharacter.Models.personnage
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>personnage</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.corps.id_corps)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.corps.id_corps)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ethnie.label)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ethnie.label)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.genre.label)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.genre.label)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vbas.label)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vbas.label)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vhaut.label)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vhaut.label)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_personnage }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

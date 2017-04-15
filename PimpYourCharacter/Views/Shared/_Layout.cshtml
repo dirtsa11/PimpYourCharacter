@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mon application ASP.NET</title>
+    <title>@ViewBag.Title - Pimp Your Character</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -18,20 +18,132 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nom d'application", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Pimp Your Character", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
-                    <li>@Html.ActionLink("À propos de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Couleurs", "Index", "Couleurs")</li>
-                    <li>@Html.ActionLink("Nez", "Index", "Nez")</li>
-                    <li>@Html.ActionLink("Jambes", "Index", "Jambes")</li>
-                    <li>@Html.ActionLink("Bras", "Index", "Bras")</li>
-                    <li>@Html.ActionLink("Bustes", "Index", "Bustes")</li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Général<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <asp:DropDownList ID="couleur" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="Couleur">@Html.ActionLink("Couleurs", "Index", "Couleurs")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                            <li>
+                                <asp:DropDownList ID="texture" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="Texture">@Html.ActionLink("Texture", "Index", "Texture")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Personnage<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <asp:DropDownList ID="ethnie" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="Ethnie">@Html.ActionLink("Ethnie", "Index", "Ethnie")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                            <li>
+                                <asp:DropDownList ID="genre" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="Genre">@Html.ActionLink("Genre", "Index", "Genre")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tête<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <asp:DropDownList ID="tete" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="Tete">@Html.ActionLink("Tete", "Index", "Tete")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                            <li>
+                                <asp:DropDownList ID="yeux" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="Yeux">@Html.ActionLink("Yeux", "Index", "Yeux")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                            <li>
+                                <asp:DropDownList ID="nez" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="Nez">@Html.ActionLink("Nez", "Index", "Nez")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                            <li>
+                                <asp:DropDownList ID="bouche" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="Bouche">@Html.ActionLink("Bouche", "Index", "Bouche")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Corps<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <asp:DropDownList ID="corps" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="Corps">@Html.ActionLink("Corps", "Index", "Corps")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                            <li>
+                                <asp:DropDownList ID="bras" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="Bras">@Html.ActionLink("Bras", "Index", "Bras")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                            <li>
+                                <asp:DropDownList ID="buste" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="Buste">@Html.ActionLink("Buste", "Index", "Buste")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                            <li>
+                                <asp:DropDownList ID="jambe" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="Jambe">@Html.ActionLink("Jambe", "Index", "Jambe")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Équipement<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <asp:DropDownList ID="arme" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="Arme">@Html.ActionLink("Arme", "Index", "Arme")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                            <li>
+                                <asp:DropDownList ID="bouclier" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="Bouclier">@Html.ActionLink("Bouclier", "Index", "Bouclier")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                            <li>
+                                <asp:DropDownList ID="categarme" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="CategorieArme">@Html.ActionLink("CategorieArme", "Index", "CategorieArme")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                            <li>
+                                <asp:DropDownList ID="access" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="Accessoire">@Html.ActionLink("Accessoire", "Index", "Accessoire")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                            <li>
+                                <asp:DropDownList ID="categaccess" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="CategorieAccess">@Html.ActionLink("CategorieAccessoire", "Index", "CategorieAccess")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
+
+<<<<<<< HEAD
+                <form class ="navbar-form navbar-right">
+                    <input type="text" name="search" placeholder="GoSearch..!" />
+                </form>
+
                 @Html.Partial("_LoginPartial")
+=======
+>>>>>>> origin/master
             </div>
         </div>
     </div>
@@ -39,7 +151,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Pimp Your Character - @Html.ActionLink("À propos", "About", "Home") - @Html.ActionLink("Contact", "Contact", "Home")</p>
         </footer>
     </div>
 

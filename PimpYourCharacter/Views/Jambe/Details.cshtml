@@ -1,0 +1,34 @@
+﻿@model PimpYourCharacter.Models.jambe
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>jambe</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.hauteur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hauteur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.forme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.forme)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_jambe }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

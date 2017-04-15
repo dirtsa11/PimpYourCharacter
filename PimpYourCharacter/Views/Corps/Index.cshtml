@@ -1,0 +1,57 @@
+﻿@model IEnumerable<PimpYourCharacter.Models.corps>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.taille)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bras.forme)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.buste.id_buste)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jambe.forme)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tete.forme)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.taille)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bras.forme)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.buste.id_buste)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.jambe.forme)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tete.forme)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_corps }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_corps }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_corps })
+        </td>
+    </tr>
+}
+
+</table>

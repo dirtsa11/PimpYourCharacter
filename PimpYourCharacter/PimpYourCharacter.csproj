@@ -197,14 +197,28 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccessoireController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ArmeController.cs" />
+    <Compile Include="Controllers\BoucheController.cs" />
+    <Compile Include="Controllers\BouclierController.cs" />
     <Compile Include="Controllers\BrasController.cs" />
-    <Compile Include="Controllers\BustesController.cs" />
+    <Compile Include="Controllers\BusteController.cs" />
+    <Compile Include="Controllers\CategorieAccessController.cs" />
+    <Compile Include="Controllers\CategorieArmeController.cs" />
+    <Compile Include="Controllers\CorpsController.cs" />
     <Compile Include="Controllers\CouleursController.cs" />
+    <Compile Include="Controllers\EthnieController.cs" />
+    <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\JambesController.cs" />
+    <Compile Include="Controllers\JambeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NezController.cs" />
+    <Compile Include="Controllers\PersonnageController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\TeteController.cs" />
+    <Compile Include="Controllers\TextureController.cs" />
+    <Compile Include="Controllers\YeuxController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -255,11 +269,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -305,6 +314,11 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -324,6 +338,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\persos.png" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -347,7 +362,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -386,26 +403,97 @@
     <Content Include="Views\Couleurs\Details.cshtml" />
     <Content Include="Views\Couleurs\Edit.cshtml" />
     <Content Include="Views\Couleurs\Index.cshtml" />
-    <Content Include="Views\Nez\Create.cshtml" />
-    <Content Include="Views\Nez\Delete.cshtml" />
-    <Content Include="Views\Nez\Details.cshtml" />
-    <Content Include="Views\Nez\Edit.cshtml" />
-    <Content Include="Views\Nez\Index.cshtml" />
-    <Content Include="Views\Jambes\Create.cshtml" />
-    <Content Include="Views\Jambes\Delete.cshtml" />
-    <Content Include="Views\Jambes\Details.cshtml" />
-    <Content Include="Views\Jambes\Edit.cshtml" />
-    <Content Include="Views\Jambes\Index.cshtml" />
+    <Content Include="Views\Bouche\Create.cshtml" />
+    <Content Include="Views\Bouche\Delete.cshtml" />
+    <Content Include="Views\Bouche\Details.cshtml" />
+    <Content Include="Views\Bouche\Edit.cshtml" />
+    <Content Include="Views\Bouche\Index.cshtml" />
+    <Content Include="Views\Yeux\Create.cshtml" />
+    <Content Include="Views\Yeux\Delete.cshtml" />
+    <Content Include="Views\Yeux\Details.cshtml" />
+    <Content Include="Views\Yeux\Edit.cshtml" />
+    <Content Include="Views\Yeux\Index.cshtml" />
+    <Content Include="Views\Accessoires\Create.cshtml" />
+    <Content Include="Views\Accessoires\Delete.cshtml" />
+    <Content Include="Views\Accessoires\Details.cshtml" />
+    <Content Include="Views\Accessoires\Edit.cshtml" />
+    <Content Include="Views\Accessoires\Index.cshtml" />
+    <Content Include="Views\Arme\Create.cshtml" />
+    <Content Include="Views\Arme\Delete.cshtml" />
+    <Content Include="Views\Arme\Details.cshtml" />
+    <Content Include="Views\Arme\Edit.cshtml" />
+    <Content Include="Views\Arme\Index.cshtml" />
+    <Content Include="Views\Bouclier\Create.cshtml" />
+    <Content Include="Views\Bouclier\Delete.cshtml" />
+    <Content Include="Views\Bouclier\Details.cshtml" />
+    <Content Include="Views\Bouclier\Edit.cshtml" />
+    <Content Include="Views\Bouclier\Index.cshtml" />
+    <Content Include="Views\Accessoire\Create.cshtml" />
+    <Content Include="Views\Accessoire\Delete.cshtml" />
+    <Content Include="Views\Accessoire\Details.cshtml" />
+    <Content Include="Views\Accessoire\Edit.cshtml" />
+    <Content Include="Views\Accessoire\Index.cshtml" />
     <Content Include="Views\Bras\Create.cshtml" />
     <Content Include="Views\Bras\Delete.cshtml" />
     <Content Include="Views\Bras\Details.cshtml" />
     <Content Include="Views\Bras\Edit.cshtml" />
     <Content Include="Views\Bras\Index.cshtml" />
-    <Content Include="Views\Bustes\Create.cshtml" />
-    <Content Include="Views\Bustes\Delete.cshtml" />
-    <Content Include="Views\Bustes\Details.cshtml" />
-    <Content Include="Views\Bustes\Edit.cshtml" />
-    <Content Include="Views\Bustes\Index.cshtml" />
+    <Content Include="Views\Buste\Create.cshtml" />
+    <Content Include="Views\Buste\Delete.cshtml" />
+    <Content Include="Views\Buste\Details.cshtml" />
+    <Content Include="Views\Buste\Edit.cshtml" />
+    <Content Include="Views\Buste\Index.cshtml" />
+    <Content Include="Views\CategorieAccess\Create.cshtml" />
+    <Content Include="Views\CategorieAccess\Delete.cshtml" />
+    <Content Include="Views\CategorieAccess\Details.cshtml" />
+    <Content Include="Views\CategorieAccess\Edit.cshtml" />
+    <Content Include="Views\CategorieAccess\Index.cshtml" />
+    <Content Include="Views\CategorieArme\Create.cshtml" />
+    <Content Include="Views\CategorieArme\Delete.cshtml" />
+    <Content Include="Views\CategorieArme\Details.cshtml" />
+    <Content Include="Views\CategorieArme\Edit.cshtml" />
+    <Content Include="Views\CategorieArme\Index.cshtml" />
+    <Content Include="Views\Corps\Create.cshtml" />
+    <Content Include="Views\Corps\Delete.cshtml" />
+    <Content Include="Views\Corps\Details.cshtml" />
+    <Content Include="Views\Corps\Edit.cshtml" />
+    <Content Include="Views\Corps\Index.cshtml" />
+    <Content Include="Views\Ethnie\Create.cshtml" />
+    <Content Include="Views\Ethnie\Delete.cshtml" />
+    <Content Include="Views\Ethnie\Details.cshtml" />
+    <Content Include="Views\Ethnie\Edit.cshtml" />
+    <Content Include="Views\Ethnie\Index.cshtml" />
+    <Content Include="Views\Genre\Create.cshtml" />
+    <Content Include="Views\Genre\Delete.cshtml" />
+    <Content Include="Views\Genre\Details.cshtml" />
+    <Content Include="Views\Genre\Edit.cshtml" />
+    <Content Include="Views\Genre\Index.cshtml" />
+    <Content Include="Views\Jambe\Create.cshtml" />
+    <Content Include="Views\Jambe\Delete.cshtml" />
+    <Content Include="Views\Jambe\Details.cshtml" />
+    <Content Include="Views\Jambe\Edit.cshtml" />
+    <Content Include="Views\Jambe\Index.cshtml" />
+    <Content Include="Views\Nez\Create.cshtml" />
+    <Content Include="Views\Nez\Delete.cshtml" />
+    <Content Include="Views\Nez\Details.cshtml" />
+    <Content Include="Views\Nez\Edit.cshtml" />
+    <Content Include="Views\Nez\Index.cshtml" />
+    <Content Include="Views\Personnage\Create.cshtml" />
+    <Content Include="Views\Personnage\Delete.cshtml" />
+    <Content Include="Views\Personnage\Details.cshtml" />
+    <Content Include="Views\Personnage\Edit.cshtml" />
+    <Content Include="Views\Personnage\Index.cshtml" />
+    <Content Include="Views\Tete\Create.cshtml" />
+    <Content Include="Views\Tete\Delete.cshtml" />
+    <Content Include="Views\Tete\Details.cshtml" />
+    <Content Include="Views\Tete\Edit.cshtml" />
+    <Content Include="Views\Tete\Index.cshtml" />
+    <Content Include="Views\Texture\Create.cshtml" />
+    <Content Include="Views\Texture\Delete.cshtml" />
+    <Content Include="Views\Texture\Details.cshtml" />
+    <Content Include="Views\Texture\Edit.cshtml" />
+    <Content Include="Views\Texture\Index.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -420,6 +508,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

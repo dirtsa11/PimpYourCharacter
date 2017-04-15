@@ -1,0 +1,69 @@
+﻿@model IEnumerable<PimpYourCharacter.Models.personnage>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.corps.id_corps)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ethnie.label)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.genre.label)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vbas.label)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vhaut.label)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.corps.id_corps)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ethnie.label)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.genre.label)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vbas.label)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vhaut.label)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_personnage }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_personnage }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_personnage })
+        </td>
+    </tr>
+}
+
+</table>
