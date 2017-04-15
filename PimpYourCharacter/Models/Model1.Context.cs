@@ -19,12 +19,74 @@ namespace PimpYourCharacter.Models
             : base("name=pimp_your_characterEntities")
         {
         }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+
+        /*protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
+        }*/
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<personnage>()
+                .HasMany<accessoire>(p => p.accessoire)
+                .WithMany(a => a.personnage)
+                .Map(ap =>
+                    {
+                        ap.MapLeftKey("id_personnage");
+                        ap.MapRightKey("id_accessoire");
+                        ap.ToTable("personnage_accessoire");
+                    });
+
+            modelBuilder.Entity<personnage>()
+                .HasMany<arme>(p => p.arme)
+                .WithMany(a => a.personnage)
+                .Map(ap =>
+                {
+                    ap.MapLeftKey("id_personnage");
+                    ap.MapRightKey("id_arme");
+                    ap.ToTable("personnage_arme");
+                });
+
+            modelBuilder.Entity<personnage>()
+                .HasMany<bouclier>(p => p.bouclier)
+                .WithMany(a => a.personnage)
+                .Map(ap =>
+                {
+                    ap.MapLeftKey("id_personnage");
+                    ap.MapRightKey("id_bouclier");
+                    ap.ToTable("personnage_bouclier");
+                });
+
+            modelBuilder.Entity<personnage>()
+                .HasMany<vmain>(p => p.vmain)
+                .WithMany(a => a.personnage)
+                .Map(ap =>
+                {
+                    ap.MapLeftKey("id_personnage");
+                    ap.MapRightKey("id_vmain");
+                    ap.ToTable("personnage_vmain");
+                });
+
+            modelBuilder.Entity<personnage>()
+                .HasMany<vpied>(p => p.vpied)
+                .WithMany(a => a.personnage)
+                .Map(ap =>
+                {
+                    ap.MapLeftKey("id_personnage");
+                    ap.MapRightKey("id_vpied");
+                    ap.ToTable("personnage_vpied");
+                });
+
+            modelBuilder.Entity<personnage>()
+                .HasMany<vtete>(p => p.vtete)
+                .WithMany(a => a.personnage)
+                .Map(ap =>
+                {
+                    ap.MapLeftKey("id_personnage");
+                    ap.MapRightKey("id_vtete");
+                    ap.ToTable("personnage_vtete");
+                });
         }
-    
+
         public virtual DbSet<accessoire> accessoire { get; set; }
         public virtual DbSet<arme> arme { get; set; }
         public virtual DbSet<bouche> bouche { get; set; }
