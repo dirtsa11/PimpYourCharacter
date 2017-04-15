@@ -485,10 +485,10 @@
     <Content Include="Views\Texture\Details.cshtml" />
     <Content Include="Views\Texture\Edit.cshtml" />
     <Content Include="Views\Texture\Index.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Search\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
