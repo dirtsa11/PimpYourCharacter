@@ -45,6 +45,12 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Personnage<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li>
+                                <asp:DropDownList ID="personnage" AutoPostBack="true" CssClass="k-dropdown">
+                                    <asp:ListItem Text="Personnage">@Html.ActionLink("Personnage", "Index", "Personnage")</asp:ListItem>
+                                </asp:DropDownList>
+                            </li>
+                            <br/>
+                            <li>
                                 <p><u><b>Informations générales</b></u></p>
                             </li>
                             <li>

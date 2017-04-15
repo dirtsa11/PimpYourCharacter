@@ -32,6 +32,24 @@
         <th>
             @Html.DisplayNameFor(model => model.vhaut.label)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.accessoire)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.arme)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bouclier)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vmain)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vpied)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vtete)
+        </th>
         <th></th>
     </tr>
 
@@ -57,6 +75,24 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.vhaut.label)
+        </td>
+        <td>
+            @Html.ListBox("id_accessoire", new SelectList(item.accessoire, "id_accessoire", "label"))
+        </td>
+        <td>
+            @Html.ListBox("id_arme", new SelectList(item.arme, "id_arme", "label"))
+        </td>
+        <td>
+            @Html.ListBox("id_bouclier", new SelectList(item.bouclier, "id_bouclier", "label"))
+        </td>
+        <td>
+            @Html.ListBox("id_vmain", new SelectList(item.vmain, "id_vmain", "label"))
+        </td>
+        <td>
+            @Html.ListBox("id_vpied", new SelectList(item.vpied, "id_vpied", "label"))
+        </td>
+        <td>
+            @Html.ListBox("id_vtete", new SelectList(item.vtete, "id_vtete", "label"))
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id_personnage }) |
