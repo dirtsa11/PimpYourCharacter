@@ -17,9 +17,6 @@ namespace PimpYourCharacter.Controllers
         // GET: Ethnie
         public ActionResult Index()
         {
-
-            SearchController test = new SearchController();
-            test.searchBouche(-1, "", -1, -1, -1, -1);
             return View(db.ethnie.ToList());
         }
 
