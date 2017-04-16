@@ -34,11 +34,6 @@ namespace PimpYourCharacter
                 defaults: new { controller = "Bouclier", action = "Index" });
 
             routes.MapRoute(
-                name: "Bras",
-                url: "Bras/{action}",
-                defaults: new { controller = "Bras", action = "Index" });
-
-            routes.MapRoute(
                 name: "Buste",
                 url: "Buste/{action}",
                 defaults: new { controller = "Buste", action = "Index" });
@@ -62,6 +57,11 @@ namespace PimpYourCharacter
                 name: "Couleurs",
                 url: "Couleurs/{action}",
                 defaults: new { controller = "Couleurs", action = "Index" });
+
+            routes.MapRoute(
+                name: "Bras",
+                url: "Bras/{action}",
+                defaults: new { controller = "Bras", action = "Index" });
 
             routes.MapRoute(
                 name: "Ethnie",
