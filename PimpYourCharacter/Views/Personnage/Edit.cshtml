@@ -9,7 +9,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>personnage</h4>
         <hr />
@@ -33,41 +33,61 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.personnage.id_ethnie, "id_ethnie", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_ethnie, "id_ethnie", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("id_ethnie", null, htmlAttributes: new { @class = "form-control" })
+
+                @Html.DropDownListFor(m => m.personnage.id_ethnie,
+                        (SelectList)ViewBag.id_ethnie,
+                        Model.personnage.ethnie.id_ethnie)
+
                 @Html.ValidationMessageFor(model => model.personnage.id_ethnie, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.personnage.id_genre, "id_genre", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_genre, "id_genre", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("id_genre", null, htmlAttributes: new { @class = "form-control" })
+
+                @Html.DropDownListFor(m => m.personnage.id_genre,
+                        (SelectList)ViewBag.id_genre,
+                        Model.personnage.genre.id_genre)
+
                 @Html.ValidationMessageFor(model => model.personnage.id_genre, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.personnage.id_vbas, "id_vbas", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_vbas, "id_vbas", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("id_vbas", null, htmlAttributes: new { @class = "form-control" })
+
+                @Html.DropDownListFor(m => m.personnage.id_vbas,
+                        (SelectList)ViewBag.id_vbas,
+                        Model.personnage.vbas.id_vbas)
+
                 @Html.ValidationMessageFor(model => model.personnage.id_vbas, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.personnage.id_vhaut, "id_vhaut", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_vhaut, "id_vhaut", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("id_vhaut", null, htmlAttributes: new { @class = "form-control" })
+
+                @Html.DropDownListFor(m => m.personnage.id_vhaut,
+                        (SelectList)ViewBag.id_vhaut,
+                        Model.personnage.vhaut.id_vhaut)
+
                 @Html.ValidationMessageFor(model => model.personnage.id_vhaut, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.personnage.id_corps, "id_corps", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_corps, "id_corps", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("id_corps", null, htmlAttributes: new { @class = "form-control" })
+
+                @Html.DropDownListFor(m => m.personnage.id_corps,
+                        (SelectList)ViewBag.id_corps,
+                        Model.personnage.corps.id_corps)
+
                 @Html.ValidationMessageFor(model => model.personnage.id_corps, "", new { @class = "text-danger" })
             </div>
         </div>

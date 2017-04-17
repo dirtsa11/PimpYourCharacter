@@ -77,19 +77,6 @@ namespace PimpYourCharacter.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            /*personnage personnage = db.personnage.Find(id);
-            if (personnage == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.id_corps = new SelectList(db.corps, "id_corps", "id_corps", personnage.id_corps);
-            ViewBag.id_ethnie = new SelectList(db.ethnie, "id_ethnie", "label", personnage.id_ethnie);
-            ViewBag.id_genre = new SelectList(db.genre, "id_genre", "label", personnage.id_genre);
-            ViewBag.id_vbas = new SelectList(db.vbas, "id_vbas", "label", personnage.id_vbas);
-            ViewBag.id_vhaut = new SelectList(db.vhaut, "id_vhaut", "label", personnage.id_vhaut);
-            
-            return View(personnage);
-             */
 
             var personnageViewModel = new PersonnageViewModel
             {
@@ -144,10 +131,10 @@ namespace PimpYourCharacter.Controllers
             });
 
             ViewBag.id_corps = new SelectList(db.corps, "id_corps", "id_corps", personnageViewModel.personnage.id_corps);
-            ViewBag.id_ethnie = new SelectList(db.ethnie, "id_ethnie", "id_ethnie", personnageViewModel.personnage.id_ethnie);
-            ViewBag.id_genre = new SelectList(db.genre, "id_genre", "id_genre", personnageViewModel.personnage.id_genre);
-            ViewBag.id_vbas = new SelectList(db.vbas, "id_vbas", "id_vbas", personnageViewModel.personnage.id_vbas);
-            ViewBag.id_vhaut = new SelectList(db.vhaut, "id_vhaut", "id_vhaut", personnageViewModel.personnage.id_vhaut);
+            ViewBag.id_ethnie = new SelectList(db.ethnie, "id_ethnie", "label", personnageViewModel.personnage.id_ethnie);
+            ViewBag.id_genre = new SelectList(db.genre, "id_genre", "label", personnageViewModel.personnage.id_genre);
+            ViewBag.id_vbas = new SelectList(db.vbas, "id_vbas", "label", personnageViewModel.personnage.id_vbas);
+            ViewBag.id_vhaut = new SelectList(db.vhaut, "id_vhaut", "label", personnageViewModel.personnage.id_vhaut);
 
             return View(personnageViewModel);
         }
@@ -156,7 +143,7 @@ namespace PimpYourCharacter.Controllers
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken] //[Bind(Include = "nom,age,id_ethnie,id_genre,id_vbas,id_vhaut,id_corps,SelectedAccessoires,SelectedArmes,SelectedBoucleirs,SelectedVMains,SelectedVPieds,SelectedVtetes")]
         public ActionResult Edit(PersonnageViewModel personnageView)
         {
             if (personnageView == null)
@@ -164,10 +151,26 @@ namespace PimpYourCharacter.Controllers
 
             if (ModelState.IsValid)
             {
-                var personnageToUpdate = db.personnage.Include(i => i.accessoire).Include(i => i.arme).Include(i => i.bouclier).Include(i => i.vmain).Include(i => i.vpied).Include(i => i.vtete).First(i => i.id_personnage == personnageView.personnage.id_personnage); ;
+                var personnageToUpdate = db.personnage.Include(i => i.accessoire).Include(i => i.arme).Include(i => i.bouclier).Include(i => i.vmain).Include(i => i.vpied).Include(i => i.vtete).First(i => i.id_personnage == personnageView.personnage.id_personnage);
 
-                if (TryUpdateModel(personnageToUpdate, "Personnage", new string[] { "id_personnage,nom,age,id_ethnie,id_genre,id_vbas,id_vhaut,id_corps" }))
+                if (TryUpdateModel(personnageToUpdate, "personnage", new string[] { "nom,age,id_ethnie,id_genre,id_vbas,id_vhaut,id_corps" }))
                 {
+                    if (personnageView.personnage.nom != null)
+                        personnageToUpdate.nom = personnageView.personnage.nom;
+                    if (personnageView.personnage.age != 0)
+                        personnageToUpdate.age = personnageView.personnage.age;
+
+                    if (personnageView.personnage.id_ethnie != 0)
+                        personnageToUpdate.id_ethnie = personnageView.personnage.id_ethnie;
+                    if (personnageView.personnage.id_genre != 0)
+                        personnageToUpdate.id_genre = personnageView.personnage.id_genre;
+                    if (personnageView.personnage.id_vbas != 0)
+                        personnageToUpdate.id_vbas = personnageView.personnage.id_vbas;
+                    if (personnageView.personnage.id_vhaut != 0)
+                        personnageToUpdate.id_vhaut = personnageView.personnage.id_vhaut;
+                    if (personnageView.personnage.id_corps != 0)
+                        personnageToUpdate.id_corps = personnageView.personnage.id_corps;
+
                     var newAccessoires = db.accessoire.Where(m => personnageView.SelectedAccessoires.Contains(m.id_accessoire)).ToList();
                     var updatedAccessoires = new HashSet<int>(personnageView.SelectedAccessoires);
                     foreach (accessoire acc in db.accessoire)
@@ -259,25 +262,13 @@ namespace PimpYourCharacter.Controllers
             }
 
             ViewBag.id_corps = new SelectList(db.corps, "id_corps", "id_corps", personnageView.personnage.id_corps);
-            ViewBag.id_ethnie = new SelectList(db.ethnie, "id_ethnie", "id_ethnie", personnageView.personnage.id_ethnie);
-            ViewBag.id_genre = new SelectList(db.genre, "id_genre", "id_genre", personnageView.personnage.id_genre);
-            ViewBag.id_vbas = new SelectList(db.vbas, "id_vbas", "id_vbas", personnageView.personnage.id_vbas);
-            ViewBag.id_vhaut = new SelectList(db.vhaut, "id_vhaut", "id_vhaut", personnageView.personnage.id_vhaut);
+            ViewBag.id_ethnie = new SelectList(db.ethnie, "id_ethnie", "label", personnageView.personnage.id_ethnie);
+            ViewBag.id_genre = new SelectList(db.genre, "id_genre", "label", personnageView.personnage.id_genre);
+            ViewBag.id_vbas = new SelectList(db.vbas, "id_vbas", "label", personnageView.personnage.id_vbas);
+            ViewBag.id_vhaut = new SelectList(db.vhaut, "id_vhaut", "label", personnageView.personnage.id_vhaut);
 
             return View(personnageView);
         }
-
-        /*public ActionResult Edit([Bind(Include = "id_personnage,nom,age,id_ethnie,id_genre,id_vbas,id_vhaut,id_corps")] PersonnageViewModel personnageViewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(personnageViewModel.personnage).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(personnageViewModel);
-        }*/
 
         // GET: Personnage/Delete/5
         public ActionResult Delete(int? id)
