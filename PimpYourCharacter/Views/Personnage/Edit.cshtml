@@ -1,5 +1,4 @@
-﻿@model PimpYourCharacter.Models.personnage
-
+﻿@model PimpYourCharacter.ViewModel.PersonnageViewModel
 @{
     ViewBag.Title = "Edit";
 }
@@ -15,61 +14,103 @@
         <h4>personnage</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.id_personnage)
+        @Html.HiddenFor(model => model.personnage.id_personnage)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.nom, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.nom, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.nom, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.nom, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.personnage.nom, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.personnage.nom, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.age, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.age, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.age, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.age, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.personnage.age, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.personnage.age, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.id_ethnie, "id_ethnie", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_ethnie, "id_ethnie", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("id_ethnie", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.id_ethnie, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.personnage.id_ethnie, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.id_genre, "id_genre", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_genre, "id_genre", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("id_genre", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.id_genre, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.personnage.id_genre, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.id_vbas, "id_vbas", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_vbas, "id_vbas", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("id_vbas", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.id_vbas, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.personnage.id_vbas, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.id_vhaut, "id_vhaut", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_vhaut, "id_vhaut", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("id_vhaut", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.id_vhaut, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.personnage.id_vhaut, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.id_corps, "id_corps", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_corps, "id_corps", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("id_corps", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.id_corps, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.personnage.id_corps, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.allAccessoires, "Accessoire", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBoxFor(m => m.SelectedAccessoires, Model.allAccessoires)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.allArmes, "Arme", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBoxFor(m => m.SelectedArmes, Model.allArmes)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.allBoucliers, "Bouclier", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBoxFor(m => m.SelectedBoucliers, Model.allBoucliers)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.allVMains, "VMain", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBoxFor(m => m.SelectedVMains, Model.allVMains)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.allVPieds, "VPied", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBoxFor(m => m.SelectedVPieds, Model.allVPieds)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.allVTetes, "VTete", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBoxFor(m => m.SelectedVTetes, Model.allVTetes)
             </div>
         </div>
 
