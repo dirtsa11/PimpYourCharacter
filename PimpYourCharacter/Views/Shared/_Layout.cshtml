@@ -21,7 +21,7 @@
                 @Html.ActionLink("PYC", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" style="margin-left:60px">
                     <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
 
                     <li class="dropdown">
@@ -124,9 +124,12 @@
                             </li>
                         </ul>
                     </li>
-                    <li>@Html.ActionLink("Recherche", "Index", "Search")</li>
-                </ul>
 
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <input type="text" name="search" placeholder="GoSearch..!" />
+                    @Html.ActionLink("Recherche avancée", "Index", "Search")
+                </form>
             </div>
         </div>
     </div>
@@ -135,12 +138,12 @@
         <hr />
     </div>
     <footer class="footer navbar-fixed-bottom">
-        <div class="container">
+        <div class="container-fluid">
             <div class="col-md-12">
-                <div class="custom-footer">
+                <div class="custom-footer" style="text-align: center; background-color: black">
                     <a href="@Url.Action("About", "Home")">A propos</a> - <a href="@Url.Action("Contact", "Home")">Contact</a>
                     <div class="pull-right">
-                        <p>&copy; @DateTime.Now.Year - PYC Group</p>
+                        <p style="color: white">&copy; @DateTime.Now.Year - PYC Group</p>
                     </div>
                 </div>
             </div>
