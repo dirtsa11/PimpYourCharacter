@@ -40,12 +40,60 @@ namespace PimpYourCharacter.Controllers
         // GET: Personnage/Create
         public ActionResult Create()
         {
+            var personnageViewModel = new PersonnageViewModel
+            {
+                personnage = new personnage(),
+                //db.personnage.Include(i => i.accessoire).Include(i => i.arme).Include(i => i.bouclier).Include(i => i.vmain).Include(i => i.vpied).Include(i => i.vtete).OrderByDescending(i => i.id_personnage).ToArray().Last(),
+            };
+
+            var allAccessoiresList = db.accessoire.ToList();
+            personnageViewModel.allAccessoires = allAccessoiresList.Select(o => new SelectListItem
+            {
+                Text = o.label,
+                Value = o.id_accessoire.ToString()
+            });
+
+            var allArmesList = db.arme.ToList();
+            personnageViewModel.allArmes = allArmesList.Select(o => new SelectListItem
+            {
+                Text = o.label,
+                Value = o.id_arme.ToString()
+            });
+
+            var allBoucliersList = db.bouclier.ToList();
+            personnageViewModel.allBoucliers = allBoucliersList.Select(o => new SelectListItem
+            {
+                Text = o.label,
+                Value = o.id_bouclier.ToString()
+            });
+
+            var allVMainsList = db.vmain.ToList();
+            personnageViewModel.allVMains = allVMainsList.Select(o => new SelectListItem
+            {
+                Text = o.label,
+                Value = o.id_vmain.ToString()
+            });
+
+            var allVPiedsList = db.vpied.ToList();
+            personnageViewModel.allVPieds = allVPiedsList.Select(o => new SelectListItem
+            {
+                Text = o.label,
+                Value = o.id_vpied.ToString()
+            });
+
+            var allVTetesList = db.vtete.ToList();
+            personnageViewModel.allVTetes = allVTetesList.Select(o => new SelectListItem
+            {
+                Text = o.label,
+                Value = o.id_vtete.ToString()
+            });
+
             ViewBag.id_corps = new SelectList(db.corps, "id_corps", "id_corps");
             ViewBag.id_ethnie = new SelectList(db.ethnie, "id_ethnie", "label");
             ViewBag.id_genre = new SelectList(db.genre, "id_genre", "label");
             ViewBag.id_vbas = new SelectList(db.vbas, "id_vbas", "label");
             ViewBag.id_vhaut = new SelectList(db.vhaut, "id_vhaut", "label");
-            return View();
+            return View(personnageViewModel);
         }
 
         // POST: Personnage/Create
@@ -53,21 +101,110 @@ namespace PimpYourCharacter.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_personnage,nom,age,id_ethnie,id_genre,id_vbas,id_vhaut,id_corps")] personnage personnage)
+        public ActionResult Create(PersonnageViewModel personnageView)
         {
             if (ModelState.IsValid)
             {
-                db.personnage.Add(personnage);
-                db.SaveChanges();
+                var newPersonnage = personnageView.personnage;
+
+                if (TryUpdateModel(newPersonnage, "personnage", new string[] { "nom,age,id_ethnie,id_genre,id_vbas,id_vhaut,id_corps" }))
+                {
+                    var newAccessoires = db.accessoire.Where(m => personnageView.SelectedAccessoires.Contains(m.id_accessoire)).ToList();
+                    var updatedAccessoires = new HashSet<int>(personnageView.SelectedAccessoires);
+                    foreach (accessoire acc in db.accessoire)
+                    {
+                        if (!updatedAccessoires.Contains(acc.id_accessoire))
+                        {
+                            newPersonnage.accessoire.Remove(acc);
+                        }
+                        else
+                        {
+                            newPersonnage.accessoire.Add((acc));
+                        }
+                    }
+
+                    var newArmes = db.arme.Where(m => personnageView.SelectedArmes.Contains(m.id_arme)).ToList();
+                    var updatedArmes = new HashSet<int>(personnageView.SelectedArmes);
+                    foreach (arme arm in db.arme)
+                    {
+                        if (!updatedArmes.Contains(arm.id_arme))
+                        {
+                            newPersonnage.arme.Remove(arm);
+                        }
+                        else
+                        {
+                            newPersonnage.arme.Add((arm));
+                        }
+                    }
+
+                    var newBoucliers = db.bouclier.Where(m => personnageView.SelectedBoucliers.Contains(m.id_bouclier)).ToList();
+                    var updatedBoucliers = new HashSet<int>(personnageView.SelectedBoucliers);
+                    foreach (bouclier bou in db.bouclier)
+                    {
+                        if (!updatedBoucliers.Contains(bou.id_bouclier))
+                        {
+                            newPersonnage.bouclier.Remove(bou);
+                        }
+                        else
+                        {
+                            newPersonnage.bouclier.Add((bou));
+                        }
+                    }
+
+                    var newVMains = db.vmain.Where(m => personnageView.SelectedVMains.Contains(m.id_vmain)).ToList();
+                    var updatedVMains = new HashSet<int>(personnageView.SelectedVMains);
+                    foreach (vmain vm in db.vmain)
+                    {
+                        if (!updatedVMains.Contains(vm.id_vmain))
+                        {
+                            newPersonnage.vmain.Remove(vm);
+                        }
+                        else
+                        {
+                            newPersonnage.vmain.Add((vm));
+                        }
+                    }
+
+                    var newVPieds = db.vpied.Where(m => personnageView.SelectedVPieds.Contains(m.id_vpied)).ToList();
+                    var updatedVPieds = new HashSet<int>(personnageView.SelectedVPieds);
+                    foreach (vpied vp in db.vpied)
+                    {
+                        if (!updatedVPieds.Contains(vp.id_vpied))
+                        {
+                            newPersonnage.vpied.Remove(vp);
+                        }
+                        else
+                        {
+                            newPersonnage.vpied.Add((vp));
+                        }
+                    }
+
+                    var newVTetes = db.vtete.Where(m => personnageView.SelectedVTetes.Contains(m.id_vtete)).ToList();
+                    var updatedVTetes = new HashSet<int>(personnageView.SelectedVTetes);
+                    foreach (vtete vt in db.vtete)
+                    {
+                        if (!updatedVTetes.Contains(vt.id_vtete))
+                        {
+                            newPersonnage.vtete.Remove(vt);
+                        }
+                        else
+                        {
+                            newPersonnage.vtete.Add((vt));
+                        }
+                    }
+                    db.personnage.Add(newPersonnage);
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
 
-            ViewBag.id_corps = new SelectList(db.corps, "id_corps", "id_corps", personnage.id_corps);
-            ViewBag.id_ethnie = new SelectList(db.ethnie, "id_ethnie", "label", personnage.id_ethnie);
-            ViewBag.id_genre = new SelectList(db.genre, "id_genre", "label", personnage.id_genre);
-            ViewBag.id_vbas = new SelectList(db.vbas, "id_vbas", "label", personnage.id_vbas);
-            ViewBag.id_vhaut = new SelectList(db.vhaut, "id_vhaut", "label", personnage.id_vhaut);
-            return View(personnage);
+            ViewBag.id_corps = new SelectList(db.corps, "id_corps", "id_corps", personnageView.personnage.id_corps);
+            ViewBag.id_ethnie = new SelectList(db.ethnie, "id_ethnie", "label", personnageView.personnage.id_ethnie);
+            ViewBag.id_genre = new SelectList(db.genre, "id_genre", "label", personnageView.personnage.id_genre);
+            ViewBag.id_vbas = new SelectList(db.vbas, "id_vbas", "label", personnageView.personnage.id_vbas);
+            ViewBag.id_vhaut = new SelectList(db.vhaut, "id_vhaut", "label", personnageView.personnage.id_vhaut);
+
+            return View(personnageView);
         }
 
         // GET: Personnage/Edit/5
