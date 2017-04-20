@@ -4,14 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Détails</h2>
+<h2>Details</h2>
 
 <div>
-    <h4>Corps</h4>
+    <h4>corps</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.LabelFor(model => model.taille,"Taille")
+            @Html.DisplayNameFor(model => model.taille)
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.LabelFor(model => model.bras.forme,"Forme de bras")
+            @Html.DisplayNameFor(model => model.bras.forme)
         </dt>
 
         <dd>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.LabelFor(model => model.buste.id_buste,"Id buste")
+            @Html.DisplayNameFor(model => model.buste.id_buste)
         </dt>
 
         <dd>
@@ -35,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.jambe.forme, "Forme de jambe")
+            @Html.DisplayNameFor(model => model.jambe.forme)
         </dt>
 
         <dd>
@@ -43,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.tete.forme, "Forme de tête")
+            @Html.DisplayNameFor(model => model.tete.forme)
         </dt>
 
         <dd>
@@ -53,6 +53,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Modifier", "Edit", new { id = Model.id_corps }) |
-    @Html.ActionLink("Retour à la liste", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_corps }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>

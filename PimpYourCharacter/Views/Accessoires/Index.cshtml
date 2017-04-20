@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PimpYourCharacter.Models.bouclier>
+﻿@model IEnumerable<PimpYourCharacter.Models.accessoire>
 
 @{
     ViewBag.Title = "Index";
@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.label)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.poids)
+            @Html.DisplayNameFor(model => model.categorie_accessoire.label)
         </th>
         <th></th>
     </tr>
@@ -26,12 +26,12 @@
             @Html.DisplayFor(modelItem => item.label)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.poids)
+            @Html.DisplayFor(modelItem => item.categorie_accessoire.label)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_bouclier }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_bouclier }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_bouclier })
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_accessoire }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_accessoire }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_accessoire })
         </td>
     </tr>
 }

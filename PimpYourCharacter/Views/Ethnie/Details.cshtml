@@ -4,14 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Détails</h2>
+<h2>Details</h2>
 
 <div>
-    <h4>Ethnie</h4>
+    <h4>ethnie</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.LabelFor(model => model.label,"Label")
+            @Html.DisplayNameFor(model => model.label)
         </dt>
 
         <dd>
@@ -21,6 +21,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Modifier", "Edit", new { id = Model.id_ethnie }) |
-    @Html.ActionLink("Retour à la liste", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_ethnie }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>

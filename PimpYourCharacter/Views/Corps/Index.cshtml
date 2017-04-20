@@ -4,27 +4,27 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Liste des corps</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Nouveau", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            Taille
+            @Html.DisplayNameFor(model => model.taille)
         </th>
         <th>
-            Forme de bras
+            @Html.DisplayNameFor(model => model.bras.forme)
         </th>
         <th>
-            Id buste
+            @Html.DisplayNameFor(model => model.buste.id_buste)
         </th>
         <th>
-            Forme de jambe
+            @Html.DisplayNameFor(model => model.jambe.forme)
         </th>
         <th>
-            Forme de tête
+            @Html.DisplayNameFor(model => model.tete.forme)
         </th>
         <th></th>
     </tr>
@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.tete.forme)
         </td>
         <td>
-            @Html.ActionLink("Modifier", "Edit", new { id=item.id_corps }) |
-            @Html.ActionLink("Détails", "Details", new { id=item.id_corps }) |
-            @Html.ActionLink("Supprimer", "Delete", new { id=item.id_corps })
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_corps }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_corps }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_corps })
         </td>
     </tr>
 }

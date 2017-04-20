@@ -4,14 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Détails</h2>
+<h2>Details</h2>
 
 <div>
-    <h4>Bouche</h4>
+    <h4>bouche</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.LabelFor(model => model.forme,"Forme")
+            @Html.DisplayNameFor(model => model.forme)
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.LabelFor(model => model.largeur,"Largeur")
+            @Html.DisplayNameFor(model => model.largeur)
         </dt>
 
         <dd>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.LabelFor(model => model.hauteur,"Hauteur")
+            @Html.DisplayNameFor(model => model.hauteur)
         </dt>
 
         <dd>
@@ -35,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.LabelFor(model => model.profondeur,"Profondeur")
+            @Html.DisplayNameFor(model => model.profondeur)
         </dt>
 
         <dd>
@@ -43,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.LabelFor(model => model.couleur.label,"Couleur")
+            @Html.DisplayNameFor(model => model.couleur.label)
         </dt>
 
         <dd>
@@ -53,6 +53,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Modifier", "Edit", new { id = Model.id_bouche }) |
-    @Html.ActionLink("Retour à la liste", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_bouche }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>

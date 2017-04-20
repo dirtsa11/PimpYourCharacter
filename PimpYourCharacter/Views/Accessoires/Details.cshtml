@@ -1,4 +1,4 @@
-﻿@model PimpYourCharacter.Models.bouclier
+﻿@model PimpYourCharacter.Models.accessoire
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>bouclier</h4>
+    <h4>accessoire</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -19,16 +19,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.poids)
+            @Html.DisplayNameFor(model => model.categorie_accessoire.label)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.poids)
+            @Html.DisplayFor(model => model.categorie_accessoire.label)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id_bouclier }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_accessoire }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
