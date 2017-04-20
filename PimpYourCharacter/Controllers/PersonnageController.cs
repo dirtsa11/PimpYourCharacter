@@ -23,7 +23,7 @@ namespace PimpYourCharacter.Controllers
         }
 
         // GET: Personnage/Details/5
-        public ActionResult Details(int? id)
+        /*public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -35,6 +35,21 @@ namespace PimpYourCharacter.Controllers
                 return HttpNotFound();
             }
             return View(personnage);
+        }*/
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var personnage = db.personnage.Include(p => p.corps).Include(p => p.ethnie).Include(p => p.genre).Include(p => p.vbas).Include(p => p.vhaut).First(i => i.id_personnage == id);
+            if (personnage == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(personnage);
         }
 
         // GET: Personnage/Create
@@ -43,7 +58,6 @@ namespace PimpYourCharacter.Controllers
             var personnageViewModel = new PersonnageViewModel
             {
                 personnage = new personnage(),
-                //db.personnage.Include(i => i.accessoire).Include(i => i.arme).Include(i => i.bouclier).Include(i => i.vmain).Include(i => i.vpied).Include(i => i.vtete).OrderByDescending(i => i.id_personnage).ToArray().Last(),
             };
 
             var allAccessoiresList = db.accessoire.ToList();

@@ -66,6 +66,48 @@
             @Html.DisplayFor(model => model.vhaut.label)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.accessoire)
+        </dt>
+
+        <dd>
+            @Html.ListBox("id_accessoire", new SelectList(Model.accessoire, "id_accessoire", "label"))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.arme)
+        </dt>
+        <dd>
+            @Html.ListBox("id_arme", new SelectList(Model.arme, "id_arme", "label"))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bouclier)
+        </dt>
+        <dd>
+            @Html.ListBox("id_bouclier", new SelectList(Model.bouclier, "id_bouclier", "label"))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vmain)
+        </dt>
+        <dd>
+            @Html.ListBox("id_vmain", new SelectList(Model.vmain, "id_vmain", "label"))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vpied)
+        </dt>
+        <dd>
+            @Html.ListBox("id_vpied", new SelectList(Model.vpied, "id_vpied", "label"))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vtete)
+        </dt>
+        <dd>
+            @Html.ListBox("id_vtete", new SelectList(Model.vtete, "id_vtete", "label"))
+        </dd>
     </dl>
 </div>
 <p>
