@@ -415,11 +415,13 @@ namespace PimpYourCharacter.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            personnage personnage = db.personnage.Find(id);
+
+            var personnage = db.personnage.Include(p => p.corps).Include(p => p.ethnie).Include(p => p.genre).Include(p => p.vbas).Include(p => p.vhaut).First(i => i.id_personnage == id);
             if (personnage == null)
             {
                 return HttpNotFound();
             }
+
             return View(personnage);
         }
 
@@ -428,7 +430,45 @@ namespace PimpYourCharacter.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            personnage personnage = db.personnage.Find(id);
+            personnage personnage = db.personnage.Include(p => p.corps).Include(p => p.ethnie).Include(p => p.genre).Include(p => p.vbas).Include(p => p.vhaut).First(i => i.id_personnage == id);
+            
+
+            foreach (accessoire acc in personnage.accessoire.ToList())
+            {
+                personnage.accessoire.Remove(acc);
+            }
+            personnage.accessoire = null;
+
+            foreach (arme arm in personnage.arme.ToList())
+            {
+                personnage.arme.Remove(arm);
+            }
+            personnage.arme = null;
+
+            foreach (bouclier bou in personnage.bouclier.ToList())
+            {
+                personnage.bouclier.Remove(bou);
+            }
+            personnage.bouclier = null;
+
+            foreach (vmain vm in personnage.vmain.ToList())
+            {
+                personnage.vmain.Remove(vm);
+            }
+            personnage.vmain = null;
+
+            foreach (vpied vp in personnage.vpied.ToList())
+            {
+                personnage.vpied.Remove(vp);
+            }
+            personnage.vpied = null;
+
+            foreach (vtete vt in personnage.vtete.ToList())
+            {
+                personnage.vtete.Remove(vt);
+            }
+            personnage.vtete = null;
+
             db.personnage.Remove(personnage);
             db.SaveChanges();
             return RedirectToAction("Index");
