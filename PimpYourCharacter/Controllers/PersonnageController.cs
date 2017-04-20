@@ -23,19 +23,6 @@ namespace PimpYourCharacter.Controllers
         }
 
         // GET: Personnage/Details/5
-        /*public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            personnage personnage = db.personnage.Find(id);
-            if (personnage == null)
-            {
-                return HttpNotFound();
-            }
-            return View(personnage);
-        }*/
         public ActionResult Details(int? id)
         {
             if (id == null)
