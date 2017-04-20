@@ -218,6 +218,11 @@
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\TeteController.cs" />
     <Compile Include="Controllers\TextureController.cs" />
+    <Compile Include="Controllers\VbasController.cs" />
+    <Compile Include="Controllers\VhautController.cs" />
+    <Compile Include="Controllers\VmainController.cs" />
+    <Compile Include="Controllers\VpiedController.cs" />
+    <Compile Include="Controllers\VteteController.cs" />
     <Compile Include="Controllers\YeuxController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -495,6 +500,31 @@
     <Content Include="Views\Texture\Edit.cshtml" />
     <Content Include="Views\Texture\Index.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Vbas\Index.cshtml" />
+    <Content Include="Views\Vbas\Create.cshtml" />
+    <Content Include="Views\Vbas\Edit.cshtml" />
+    <Content Include="Views\Vbas\Delete.cshtml" />
+    <Content Include="Views\Vbas\Details.cshtml" />
+    <Content Include="Views\Vhaut\Create.cshtml" />
+    <Content Include="Views\Vhaut\Delete.cshtml" />
+    <Content Include="Views\Vhaut\Details.cshtml" />
+    <Content Include="Views\Vhaut\Edit.cshtml" />
+    <Content Include="Views\Vhaut\Index.cshtml" />
+    <Content Include="Views\Vmain\Create.cshtml" />
+    <Content Include="Views\Vmain\Delete.cshtml" />
+    <Content Include="Views\Vmain\Details.cshtml" />
+    <Content Include="Views\Vmain\Edit.cshtml" />
+    <Content Include="Views\Vmain\Index.cshtml" />
+    <Content Include="Views\Vpied\Create.cshtml" />
+    <Content Include="Views\Vpied\Details.cshtml" />
+    <Content Include="Views\Vpied\Delete.cshtml" />
+    <Content Include="Views\Vpied\Edit.cshtml" />
+    <Content Include="Views\Vpied\Index.cshtml" />
+    <Content Include="Views\Vtete\Create.cshtml" />
+    <Content Include="Views\Vtete\Delete.cshtml" />
+    <Content Include="Views\Vtete\Details.cshtml" />
+    <Content Include="Views\Vtete\Edit.cshtml" />
+    <Content Include="Views\Vtete\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

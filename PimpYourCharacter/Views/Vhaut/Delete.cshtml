@@ -1,0 +1,56 @@
+﻿@model PimpYourCharacter.Models.vhaut
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Suppression</h2>
+
+<h3>Etes-vous sûr de vouloir supprimer cet élément ?</h3>
+<div>
+    <h4>Vêtement haut</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.label)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.label)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.poids)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.poids)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.couleur.label)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.couleur.label)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.texture.label)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.texture.label)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

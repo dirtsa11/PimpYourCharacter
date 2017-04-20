@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PimpYourCharacter.Models.vpied>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.label)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.poids)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.couleur.label)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.texture.label)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.label)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.poids)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.couleur.label)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.texture.label)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_vpied }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_vpied }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_vpied })
+        </td>
+    </tr>
+}
+
+</table>
