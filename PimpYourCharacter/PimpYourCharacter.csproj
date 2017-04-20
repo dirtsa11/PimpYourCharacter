@@ -419,11 +419,6 @@
     <Content Include="Views\Yeux\Details.cshtml" />
     <Content Include="Views\Yeux\Edit.cshtml" />
     <Content Include="Views\Yeux\Index.cshtml" />
-    <Content Include="Views\Accessoires\Create.cshtml" />
-    <Content Include="Views\Accessoires\Delete.cshtml" />
-    <Content Include="Views\Accessoires\Details.cshtml" />
-    <Content Include="Views\Accessoires\Edit.cshtml" />
-    <Content Include="Views\Accessoires\Index.cshtml" />
     <Content Include="Views\Arme\Create.cshtml" />
     <Content Include="Views\Arme\Delete.cshtml" />
     <Content Include="Views\Arme\Details.cshtml" />
