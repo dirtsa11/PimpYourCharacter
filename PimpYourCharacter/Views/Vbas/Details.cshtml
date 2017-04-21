@@ -4,14 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Détails</h2>
 
 <div>
-    <h4>vbas</h4>
+    <h4>Vêtement bas</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.label)
+            @Html.LabelFor(model => model.label,"Label")
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.poids)
+            @Html.LabelFor(model => model.poids,"Poids")
         </dt>
 
         <dd>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.couleur.label)
+            @Html.LabelFor(model => model.couleur.label,"Couleur")
         </dt>
 
         <dd>
@@ -35,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.texture.label)
+            @Html.LabelFor(model => model.texture.label,"Texture")
         </dt>
 
         <dd>
@@ -45,6 +45,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id_vbas }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.id_vbas }) |
+    @Html.ActionLink("Retour à la liste", "Index")
 </p>

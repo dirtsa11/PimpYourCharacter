@@ -4,14 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Détails</h2>
 
 <div>
-    <h4>personnage</h4>
+    <h4>Personnage</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.nom)
+            @Html.LabelFor(model => model.nom,"Nom")
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.age)
+           @Html.LabelFor(model => model.age,"Age")
         </dt>
 
         <dd>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.corps.id_corps)
+            @Html.LabelFor(model => model.corps.id_corps,"Id corps")
         </dt>
 
         <dd>
@@ -35,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ethnie.label)
+            @Html.LabelFor(model => model.ethnie.label,"Ethnie")
         </dt>
 
         <dd>
@@ -43,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.genre.label)
+            @Html.LabelFor(model => model.genre.label,"Genre")
         </dt>
 
         <dd>
@@ -51,7 +51,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.vbas.label)
+            @Html.LabelFor(model => model.vbas.label,"Vêtement bas")
         </dt>
 
         <dd>
@@ -59,7 +59,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.vhaut.label)
+            @Html.LabelFor(model => model.vhaut.label,"Vêtement haut")
         </dt>
 
         <dd>
@@ -67,7 +67,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.accessoire)
+            @Html.LabelFor(model => model.accessoire,"Accessoire")
         </dt>
 
         <dd>
@@ -75,35 +75,35 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.arme)
+            @Html.LabelFor(model => model.arme,"Arme")
         </dt>
         <dd>
             @Html.ListBox("id_arme", new SelectList(Model.arme, "id_arme", "label"))
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.bouclier)
+            @Html.LabelFor(model => model.bouclier,"Bouclier")
         </dt>
         <dd>
             @Html.ListBox("id_bouclier", new SelectList(Model.bouclier, "id_bouclier", "label"))
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.vmain)
+            @Html.LabelFor(model => model.vmain,"Vêtement main")
         </dt>
         <dd>
             @Html.ListBox("id_vmain", new SelectList(Model.vmain, "id_vmain", "label"))
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.vpied)
+            @Html.LabelFor(model => model.vpied,"Vêtement pied")
         </dt>
         <dd>
             @Html.ListBox("id_vpied", new SelectList(Model.vpied, "id_vpied", "label"))
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.vtete)
+            @Html.LabelFor(model => model.vtete,"Vêtement tête")
         </dt>
         <dd>
             @Html.ListBox("id_vtete", new SelectList(Model.vtete, "id_vtete", "label"))
@@ -111,6 +111,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id_personnage }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.id_personnage }) |
+    @Html.ActionLink("Retour à la liste", "Index")
 </p>

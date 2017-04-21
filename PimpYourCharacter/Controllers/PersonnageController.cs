@@ -431,7 +431,7 @@ namespace PimpYourCharacter.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             personnage personnage = db.personnage.Include(p => p.corps).Include(p => p.ethnie).Include(p => p.genre).Include(p => p.vbas).Include(p => p.vhaut).First(i => i.id_personnage == id);
-            
+
 
             foreach (accessoire acc in personnage.accessoire.ToList())
             {

@@ -3,7 +3,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Modifier</h2>
 
 
 @using (Html.BeginForm())
@@ -11,13 +11,13 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>personnage</h4>
+        <h4>Personnage</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.personnage.id_personnage)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.personnage.nom, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.nom,"Nom", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.personnage.nom, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.personnage.nom, "", new { @class = "text-danger" })
@@ -25,7 +25,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.personnage.age, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.age,"Age", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.personnage.age, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.personnage.age, "", new { @class = "text-danger" })
@@ -33,7 +33,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.personnage.id_ethnie, "id_ethnie", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_ethnie, "Ethnie", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
 
                 @Html.DropDownListFor(m => m.personnage.id_ethnie,
@@ -45,7 +45,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.personnage.id_genre, "id_genre", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_genre, "Genre", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
 
                 @Html.DropDownListFor(m => m.personnage.id_genre,
@@ -57,7 +57,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.personnage.id_vbas, "id_vbas", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_vbas, "Vêtement bas", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
 
                 @Html.DropDownListFor(m => m.personnage.id_vbas,
@@ -69,7 +69,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.personnage.id_vhaut, "id_vhaut", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_vhaut, "Vêtement haut", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
 
                 @Html.DropDownListFor(m => m.personnage.id_vhaut,
@@ -81,7 +81,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.personnage.id_corps, "id_corps", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_corps, "Id corps", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
 
                 @Html.DropDownListFor(m => m.personnage.id_corps,
@@ -114,21 +114,21 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.allVMains, "VMain", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.allVMains, "Vêtement main", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.ListBoxFor(m => m.SelectedVMains, Model.allVMains)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.allVPieds, "VPied", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.allVPieds, "Vêtement pied", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.ListBoxFor(m => m.SelectedVPieds, Model.allVPieds)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.allVTetes, "VTete", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.allVTetes, "Vêtement tête", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.ListBoxFor(m => m.SelectedVTetes, Model.allVTetes)
             </div>
@@ -136,14 +136,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Sauvegarder" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Retour à la liste", "Index")
 </div>
 
 @section Scripts {

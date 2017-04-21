@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Créer</h2>
 
 
 @using (Html.BeginForm())
@@ -12,11 +12,11 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>personnage</h4>
+        <h4>Personnage</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.personnage.nom, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.nom,"Nom", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.personnage.nom, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.personnage.nom, "", new { @class = "text-danger" })
@@ -24,7 +24,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.personnage.age, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.age,"Age", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.personnage.age, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.personnage.age, "", new { @class = "text-danger" })
@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.personnage.id_ethnie, "id_ethnie", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_ethnie, "Ethnie", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.personnage.id_ethnie, (SelectList)ViewBag.id_ethnie)
                 @Html.ValidationMessageFor(model => model.personnage.id_ethnie, "", new { @class = "text-danger" })
@@ -40,7 +40,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.personnage.id_genre, "id_genre", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_genre, "Genre", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.personnage.id_genre, (SelectList)ViewBag.id_genre)
                 @Html.ValidationMessageFor(model => model.personnage.id_genre, "", new { @class = "text-danger" })
@@ -48,7 +48,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.personnage.id_vbas, "id_vbas", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_vbas, "Vêtement bas", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.personnage.id_vbas, (SelectList)ViewBag.id_vbas)
                 @Html.ValidationMessageFor(model => model.personnage.id_vbas, "", new { @class = "text-danger" })
@@ -56,7 +56,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.personnage.id_vhaut, "id_vhaut", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_vhaut, "Vêtement haut", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.personnage.id_vhaut, (SelectList)ViewBag.id_vhaut)
                 @Html.ValidationMessageFor(model => model.personnage.id_vhaut, "", new { @class = "text-danger" })
@@ -64,9 +64,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.personnage.id_corps, "id_corps", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.personnage.id_corps, "Id corps", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.personnage.id_corps,(SelectList)ViewBag.id_corps)
+                @Html.DropDownListFor(model => model.personnage.id_corps, (SelectList)ViewBag.id_corps)
                 @Html.ValidationMessageFor(model => model.personnage.id_corps, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -74,15 +74,15 @@
         <div class="form-group">
             @Html.LabelFor(model => model.allAccessoires, "Accessoire", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                 @Html.ListBoxFor(m => m.SelectedAccessoires, Model.allAccessoires) 
-                 @*@Html.ListBox("id_accessoire", new SelectList(Model.allAccessoires, "id_accessoire", "label"))*@
+                @Html.ListBoxFor(m => m.SelectedAccessoires, Model.allAccessoires)
+                @*@Html.ListBox("id_accessoire", new SelectList(Model.allAccessoires, "id_accessoire", "label"))*@
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.allArmes, "Arme", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                 @Html.ListBoxFor(m => m.SelectedArmes, Model.allArmes) 
+                @Html.ListBoxFor(m => m.SelectedArmes, Model.allArmes)
             </div>
         </div>
 
@@ -94,21 +94,21 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.allVMains, "VMain", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.allVMains, "Vêtement main", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.ListBoxFor(m => m.SelectedVMains, Model.allVMains)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.allVPieds, "VPied", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.allVPieds, "Vêtement pied", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.ListBoxFor(m => m.SelectedVPieds, Model.allVPieds)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.allVTetes, "VTete", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.allVTetes, "Vêtement tête", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.ListBoxFor(m => m.SelectedVTetes, Model.allVTetes)
             </div>
@@ -116,16 +116,16 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Créer" class="btn btn-default" />
             </div>
         </div>
     </div>
-    }
+}
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+<div>
+    @Html.ActionLink("Retour à la liste", "Index")
+</div>
 
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
