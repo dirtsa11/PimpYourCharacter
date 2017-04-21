@@ -4,24 +4,24 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Liste des nez</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nouveau", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.hauteur)
+            Hauteur
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.largeur)
+            Largeur
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.profondeur)
+            Profondeur
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.forme)
+            Forme
         </th>
         <th></th>
     </tr>
@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.forme)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_nez }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_nez }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_nez })
+            @Html.ActionLink("Modifier", "Edit", new { id=item.id_nez }) |
+            @Html.ActionLink("Détails", "Details", new { id=item.id_nez }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id=item.id_nez })
         </td>
     </tr>
 }

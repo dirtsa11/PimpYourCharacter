@@ -4,30 +4,30 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Liste des têtes</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nouveau", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.hauteur)
+            Hauteur
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.largeur)
+            Largeur
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.forme)
+            Frme
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.bouche.forme)
+            Forme de la bouche
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nez.forme)
+            Forme du nez
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.yeux.forme)
+            Forme des yeux
         </th>
         <th></th>
     </tr>
@@ -53,9 +53,9 @@
             @Html.DisplayFor(modelItem => item.yeux.forme)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_tete }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_tete }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_tete })
+            @Html.ActionLink("Modifier", "Edit", new { id=item.id_tete }) |
+            @Html.ActionLink("Détails", "Details", new { id=item.id_tete }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id=item.id_tete })
         </td>
     </tr>
 }
