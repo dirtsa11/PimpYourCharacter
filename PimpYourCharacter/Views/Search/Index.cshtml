@@ -9,33 +9,29 @@
 
 <h2>Recherche</h2>
 
-<form method="post">
-    <fieldset>
-        <legend>Accessoire</legend>
-        <div>
-            <label>ID : </label>
-        </div>
-        <div>
-            <input id="accessoire_id_accessoire" type="number" value="-1" />
-        </div>
-        <div>
-            <label>Label : </label>
-        </div>
-        <div>
-            <input id="accessoire_label" type="text" value=""/>
-        </div>
-        <div>
-            <label>Categorie : </label>
-        </div>
-        <div>
-            <input id="accessoire_id_categorie" type="number" value="-1" />
-        </div>
-        <div>
-            @Html.ActionLink("searchAccessoire", "searchAccessoire", new { id_accessoire=accessoire_id_accessoire, label=accessoire_label, id_categorie=accessoire_id_categorie })
-        </div>
-    </fieldset>
+@using (Html.BeginForm("searchAccessoire","SearchController"))
+{
+    @Html.AntiForgeryToken()
 
-</form>
+    <div class="form-horizontal">
+        <h4>Accessoire</h4>
+        <hr />
+
+        <div>
+            ID :        @Html.TextBox("id_accessoire")
+        </div>
+        <div>
+            Label :     @Html.TextBox("label")
+        </div>
+        <div>
+            Catégorie : @Html.TextBox("id_categorie")
+        </div>
+
+    </div>
+
+    <input type="submit" value="Recherche" />
+    
+}
 
 
 
