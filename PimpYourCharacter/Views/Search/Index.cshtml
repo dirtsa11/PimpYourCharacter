@@ -3,37 +3,39 @@
     ViewBag.Title = "Index";
 }
 
+@{ var accessoire_id_accessoire = 1;
+    var accessoire_label = "";
+    var accessoire_id_categorie = -1; }
+
 <h2>Recherche</h2>
 
-<form method="post" action="">
+<form method="post">
     <fieldset>
         <legend>Accessoire</legend>
         <div>
             <label>ID : </label>
         </div>
         <div>
-            <input name="accessoire_id_accessoire" type="number" value="" />
+            <input id="accessoire_id_accessoire" type="number" value="-1" />
         </div>
         <div>
             <label>Label : </label>
         </div>
         <div>
-            <input name="accessoire_label" type="text" value="" />
+            <input id="accessoire_label" type="text" value=""/>
         </div>
         <div>
             <label>Categorie : </label>
         </div>
         <div>
-            <input name="accessoire_id_categorie" type="number" value="" />
+            <input id="accessoire_id_categorie" type="number" value="-1" />
         </div>
         <div>
-            <label></label>
-            <input type="submit" value="Rechercher" class="submit" />
+            @Html.ActionLink("searchAccessoire", "searchAccessoire", new { id_accessoire=accessoire_id_accessoire, label=accessoire_label, id_categorie=accessoire_id_categorie })
         </div>
     </fieldset>
 
 </form>
-
 
 
 
