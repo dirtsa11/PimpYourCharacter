@@ -9,29 +9,33 @@
 
 <h2>Recherche</h2>
 
-@using (Html.BeginForm("searchAccessoire","SearchController"))
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        <h4>Accessoire</h4>
-        <hr />
-
+<form method="post">
+    <fieldset>
+        <legend>Accessoire</legend>
         <div>
-            ID :        @Html.TextBox("id_accessoire")
+            <label>ID : </label>
         </div>
         <div>
-            Label :     @Html.TextBox("label")
+            <input id="accessoire_id_accessoire" type="number" value="-1" />
         </div>
         <div>
-            Catégorie : @Html.TextBox("id_categorie")
+            <label>Label : </label>
         </div>
+        <div>
+            <input id="accessoire_label" type="text" value=""/>
+        </div>
+        <div>
+            <label>Categorie : </label>
+        </div>
+        <div>
+            <input id="accessoire_id_categorie" type="number" value="-1" />
+        </div>
+        <div>
+            @Html.ActionLink("searchAccessoire", "searchAccessoire", new { id_accessoire=accessoire_id_accessoire, label=accessoire_label, id_categorie=accessoire_id_categorie })
+        </div>
+    </fieldset>
 
-    </div>
-
-    <input type="submit" value="Recherche" />
-    
-}
+</form>
 
 
 
